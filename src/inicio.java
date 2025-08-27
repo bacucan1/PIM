@@ -38,6 +38,7 @@ public class inicio extends javax.swing.JFrame {
         cn_inicio = new javax.swing.JPanel();
         bt_regis = new javax.swing.JButton();
         bt_login = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,42 +56,51 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setText("Bienvenido a PIM");
+
         javax.swing.GroupLayout cn_inicioLayout = new javax.swing.GroupLayout(cn_inicio);
         cn_inicio.setLayout(cn_inicioLayout);
         cn_inicioLayout.setHorizontalGroup(
             cn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cn_inicioLayout.createSequentialGroup()
-                .addContainerGap(266, Short.MAX_VALUE)
-                .addComponent(bt_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(250, 250, 250))
-            .addGroup(cn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cn_inicioLayout.createSequentialGroup()
-                    .addContainerGap(265, Short.MAX_VALUE)
+                .addContainerGap(244, Short.MAX_VALUE)
+                .addGroup(cn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(bt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(251, 251, 251)))
+                    .addComponent(bt_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(250, 250, 250))
+            .addGroup(cn_inicioLayout.createSequentialGroup()
+                .addGap(290, 290, 290)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cn_inicioLayout.setVerticalGroup(
             cn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cn_inicioLayout.createSequentialGroup()
-                .addContainerGap(235, Short.MAX_VALUE)
+                .addGap(68, 68, 68)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(bt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
                 .addComponent(bt_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(157, 157, 157))
-            .addGroup(cn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(cn_inicioLayout.createSequentialGroup()
-                    .addGap(115, 115, 115)
-                    .addComponent(bt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(277, Short.MAX_VALUE)))
+                .addGap(75, 75, 75))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cn_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cn_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(16, 16, 16))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cn_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cn_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -154,5 +164,6 @@ public class inicio extends javax.swing.JFrame {
     private javax.swing.JButton bt_login;
     private javax.swing.JButton bt_regis;
     private javax.swing.JPanel cn_inicio;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }

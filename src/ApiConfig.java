@@ -9,7 +9,7 @@
  */
 public class ApiConfig {
     // URL base de la API
-    public static final String BASE_URL = "https://02222ce782e9.ngrok-free.app/";
+    public static final String BASE_URL = "http://127.0.0.1:5000/";
     static String PERSONAS_URL = BASE_URL;
 }
 

@@ -35,6 +35,7 @@ public class DashBoard extends javax.swing.JPanel {
         bt_info_per = new javax.swing.JButton();
         bt_info_eco = new javax.swing.JButton();
         content = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         bt_info_res.setText("Resumen Principal");
         bt_info_res.addActionListener(new java.awt.event.ActionListener() {
@@ -70,30 +71,46 @@ public class DashBoard extends javax.swing.JPanel {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\emilc\\OneDrive\\Desktop\\Demo\\PIM\\src\\nueva-cuenta (1).png")); // NOI18N
+        jLabel3.setToolTipText("");
+        jLabel3.setMaximumSize(new java.awt.Dimension(200, 200));
+        jLabel3.setMinimumSize(new java.awt.Dimension(200, 200));
+        jLabel3.setPreferredSize(new java.awt.Dimension(200, 200));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bt_info_res, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(bt_info_eco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bt_info_per, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bt_info_res, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bt_info_eco, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                            .addComponent(bt_info_per, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(11, 11, 11))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(228, 228, 228)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
                 .addComponent(bt_info_res)
                 .addGap(18, 18, 18)
                 .addComponent(bt_info_eco)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bt_info_per)
-                .addContainerGap(153, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -130,5 +147,6 @@ public class DashBoard extends javax.swing.JPanel {
     private javax.swing.JButton bt_info_per;
     private javax.swing.JButton bt_info_res;
     private javax.swing.JPanel content;
+    private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
 }
