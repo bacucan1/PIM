@@ -41,22 +41,34 @@ public class inicio extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 52, 89));
 
+        cn_inicio.setBackground(new java.awt.Color(47, 33, 0));
+        cn_inicio.setPreferredSize(new java.awt.Dimension(656, 441));
+
+        bt_regis.setBackground(new java.awt.Color(102, 102, 102));
+        bt_regis.setFont(new java.awt.Font("Sans Serif Collection", 0, 40)); // NOI18N
         bt_regis.setText("Registrarse");
+        bt_regis.setMaximumSize(new java.awt.Dimension(244, 314));
+        bt_regis.setPreferredSize(new java.awt.Dimension(244, 300));
         bt_regis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_regisActionPerformed(evt);
             }
         });
 
-        bt_login.setText("Login");
+        bt_login.setBackground(new java.awt.Color(69, 28, 0));
+        bt_login.setFont(new java.awt.Font("Sans Serif Collection", 0, 40)); // NOI18N
+        bt_login.setForeground(new java.awt.Color(255, 255, 255));
+        bt_login.setText("Iniciar sesion");
         bt_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_loginActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Sans Serif Collection", 0, 80)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Bienvenido a PIM");
 
         javax.swing.GroupLayout cn_inicioLayout = new javax.swing.GroupLayout(cn_inicio);
@@ -64,43 +76,37 @@ public class inicio extends javax.swing.JFrame {
         cn_inicioLayout.setHorizontalGroup(
             cn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cn_inicioLayout.createSequentialGroup()
-                .addContainerGap(244, Short.MAX_VALUE)
-                .addGroup(cn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(250, 250, 250))
-            .addGroup(cn_inicioLayout.createSequentialGroup()
-                .addGap(290, 290, 290)
+                .addContainerGap(127, Short.MAX_VALUE)
                 .addComponent(jLabel3)
+                .addGap(99, 99, 99))
+            .addGroup(cn_inicioLayout.createSequentialGroup()
+                .addGap(283, 283, 283)
+                .addGroup(cn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(bt_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cn_inicioLayout.setVerticalGroup(
             cn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cn_inicioLayout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(bt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addComponent(bt_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addGap(65, 65, 65)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(bt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(bt_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cn_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(16, 16, 16))
+            .addComponent(cn_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cn_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(cn_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
         );
 
         pack();
