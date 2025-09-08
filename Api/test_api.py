@@ -6,7 +6,7 @@ from unittest.mock import Mock, patch, MagicMock
 from werkzeug.security import generate_password_hash
 from bson import ObjectId
 
-# Hola que ase
+
 from app import app, connect_to_mongodb
 
 @pytest.fixture
