@@ -43,10 +43,10 @@ public class inicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 52, 89));
 
-        cn_inicio.setBackground(new java.awt.Color(47, 33, 0));
+        cn_inicio.setBackground(new java.awt.Color(245, 245, 220));
         cn_inicio.setPreferredSize(new java.awt.Dimension(656, 441));
 
-        bt_regis.setBackground(new java.awt.Color(102, 102, 102));
+        bt_regis.setBackground(new java.awt.Color(107, 77, 37));
         bt_regis.setFont(new java.awt.Font("Sans Serif Collection", 0, 40)); // NOI18N
         bt_regis.setText("Registrarse");
         bt_regis.setMaximumSize(new java.awt.Dimension(244, 314));
@@ -57,7 +57,7 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
-        bt_login.setBackground(new java.awt.Color(69, 28, 0));
+        bt_login.setBackground(new java.awt.Color(47, 33, 0));
         bt_login.setFont(new java.awt.Font("Sans Serif Collection", 0, 40)); // NOI18N
         bt_login.setForeground(new java.awt.Color(255, 255, 255));
         bt_login.setText("Iniciar sesion");
@@ -67,8 +67,9 @@ public class inicio extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setBackground(new java.awt.Color(107, 77, 37));
         jLabel3.setFont(new java.awt.Font("Sans Serif Collection", 0, 80)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setForeground(new java.awt.Color(107, 77, 37));
         jLabel3.setText("Bienvenido a PIM");
 
         javax.swing.GroupLayout cn_inicioLayout = new javax.swing.GroupLayout(cn_inicio);
