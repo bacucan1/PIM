@@ -70,7 +70,7 @@ public class login extends javax.swing.JPanel {
             }
         });
 
-        bt_entrar.setBackground(new java.awt.Color(160, 82, 45));
+        bt_entrar.setBackground(new java.awt.Color(69, 28, 0));
         bt_entrar.setFont(new java.awt.Font("Sans Serif Collection", 0, 40)); // NOI18N
         bt_entrar.setForeground(new java.awt.Color(255, 255, 255));
         bt_entrar.setText("Entrar");

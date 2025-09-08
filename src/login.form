@@ -130,7 +130,7 @@
     <Component class="javax.swing.JButton" name="bt_entrar">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="2d" green="52" red="a0" type="rgb"/>
+          <Color blue="0" green="1c" red="45" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Sans Serif Collection" size="40" style="0"/>
