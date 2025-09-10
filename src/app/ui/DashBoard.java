@@ -78,6 +78,7 @@ public class DashBoard extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img_DSH.png"))); // NOI18N
         jLabel3.setToolTipText("");
         jLabel3.setMaximumSize(new java.awt.Dimension(200, 200));
         jLabel3.setMinimumSize(new java.awt.Dimension(200, 200));
