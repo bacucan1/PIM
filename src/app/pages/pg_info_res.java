@@ -69,12 +69,12 @@ public class pg_info_res extends javax.swing.JPanel {
             conn.disconnect();
 
             String jsonResponse = response.toString();
-            System.out.println("📩 Respuesta GET: " + jsonResponse);
+            System.out.println("Respuesta GET: " + jsonResponse);
 
             Gson gson = new Gson();
 
             if (jsonResponse.startsWith("{")) {
-                // ✅ Caso: objeto con lista de personas adentro
+                // Caso: objeto con lista de personas adentro
                 RespuestaPersonas respuesta = gson.fromJson(jsonResponse, RespuestaPersonas.class);
                 mostrarEnTabla(respuesta.getPersonas().toArray(new Persona[0]));
 
@@ -82,18 +82,18 @@ public class pg_info_res extends javax.swing.JPanel {
                         "Total de registros: " + respuesta.getTotal_registros());
 
             } else if (jsonResponse.startsWith("[")) {
-                // ✅ Caso: array directo
+                // Caso: array directo
                 Persona[] personas = gson.fromJson(jsonResponse, Persona[].class);
                 mostrarEnTabla(personas);
 
             } else {
-                // ✅ Caso: solo mensaje en texto
+                // Caso: solo mensaje en texto
                 JOptionPane.showMessageDialog(this, jsonResponse);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "❌ Error al obtener datos: " + e.getMessage());
+            JOptionPane.showMessageDialog(this, "Error al obtener datos: " + e.getMessage());
         }
     }
     // ================================================
@@ -101,54 +101,47 @@ public class pg_info_res extends javax.swing.JPanel {
     // ================================================
 
     private void mostrarEnTabla(Persona[] personas) {
-        DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("Nombre");
-        model.addColumn("Documento");
-        model.addColumn("Edad");
-        model.addColumn("Nacionalidad");
+    DefaultTableModel model = new DefaultTableModel();
+    model.addColumn("Nombre completo");
+    model.addColumn("Tipo de documento");
+    model.addColumn("Número de documento");
+    model.addColumn("Fecha de nacimiento");
+    model.addColumn("Edad");
+    model.addColumn("Nacionalidad");
 
-        for (Persona p : personas) {
-            model.addRow(new Object[]{
-                p.getNombreCompleto(),
-                p.getTipoDocumento() + " " + p.getNumeroDocumento(),
-                p.getEdad(),
-                p.getNacionalidad()
-            });
-        }
-
-        tablaPersonas.setModel(model);
+    for (Persona p : personas) {
+        model.addRow(new Object[]{
+            p.getNombreCompleto(),
+            p.getTipoDocumento(),
+            p.getNumeroDocumento(),
+            p.getFechaNacimiento(),
+            p.getEdad(),
+            p.getNacionalidad()
+        });
     }
 
-    // =====================================================
-    // Clase auxiliar Persona (ajústala a tu JSON real)
-    // =====================================================
-    public class Persona {
+    tablaPersonas.setModel(model);
+}
 
+
+// =====================================================
+// Clase auxiliar Persona (ajustada a tu JSON real)
+// =====================================================
+    public class Persona {
         private String nombreCompleto;
         private String tipoDocumento;
         private String numeroDocumento;
+        private String fechaNacimiento;
         private int edad;
         private String nacionalidad;
 
-        public String getNombreCompleto() {
-            return nombreCompleto;
-        }
+        public String getNombreCompleto() { return nombreCompleto; }
+        public String getTipoDocumento() { return tipoDocumento; }
+        public String getNumeroDocumento() { return numeroDocumento; }
+        public String getFechaNacimiento() { return fechaNacimiento; }
+        public int getEdad() { return edad; }
+        public String getNacionalidad() { return nacionalidad; }
 
-        public String getTipoDocumento() {
-            return tipoDocumento;
-        }
-
-        public String getNumeroDocumento() {
-            return numeroDocumento;
-        }
-
-        public int getEdad() {
-            return edad;
-        }
-
-        public String getNacionalidad() {
-            return nacionalidad;
-        }
     }
     // =====================================================
 // Clase auxiliar para mapear la respuesta del JSON
@@ -190,13 +183,13 @@ public class pg_info_res extends javax.swing.JPanel {
 
         tablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Documento", "Edad", "Nacionalidad"
+                "Nombre", "Documento", "Edad", "Nacionalidad", "Fecha de nacimiento"
             }
         ));
         tablaPersonas.setRowHeight(40);
@@ -214,12 +207,12 @@ public class pg_info_res extends javax.swing.JPanel {
                         .addGap(217, 217, 217)
                         .addComponent(jButton1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(50, 50, 50)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(188, 188, 188)
+                        .addGap(231, 231, 231)
                         .addComponent(jLabel1)))
-                .addContainerGap(335, Short.MAX_VALUE))
+                .addContainerGap(244, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
