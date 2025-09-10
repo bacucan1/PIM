@@ -1,4 +1,9 @@
+package app.ui;
 
+
+import app.session.UserSession;
+import app.model.Usuario;
+import app.config.ApiConfig;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.awt.HeadlessException;
@@ -48,7 +53,7 @@ public class login extends javax.swing.JPanel {
         setBackground(new java.awt.Color(47, 33, 0));
         setPreferredSize(new java.awt.Dimension(882, 480));
 
-        correo_lg.setFont(new java.awt.Font("Sans Serif Collection", 0, 30)); // NOI18N
+        correo_lg.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
         correo_lg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 correo_lgActionPerformed(evt);
@@ -65,7 +70,7 @@ public class login extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Contraseña");
 
-        contraseña_lg.setFont(new java.awt.Font("Sans Serif Collection", 0, 30)); // NOI18N
+        contraseña_lg.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
         contraseña_lg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contraseña_lgActionPerformed(evt);
@@ -142,7 +147,7 @@ public class login extends javax.swing.JPanel {
                 .addComponent(bt_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

@@ -1,4 +1,9 @@
+package app.ui;
 
+
+import app.pages.pg_info_eco;
+import app.pages.pg_info_per;
+import app.pages.pg_info_res;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -73,7 +78,6 @@ public class DashBoard extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\emilc\\OneDrive\\Desktop\\Demo\\PIM\\src\\nueva-cuenta (1).png")); // NOI18N
         jLabel3.setToolTipText("");
         jLabel3.setMaximumSize(new java.awt.Dimension(200, 200));
         jLabel3.setMinimumSize(new java.awt.Dimension(200, 200));

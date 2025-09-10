@@ -1,3 +1,5 @@
+package app.ui;
+
 
 import javax.swing.JPanel;
 

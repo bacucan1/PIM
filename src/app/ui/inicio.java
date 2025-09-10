@@ -1,3 +1,5 @@
+package app.ui;
+
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
