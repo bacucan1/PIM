@@ -110,6 +110,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jComboBox1" min="-2" pref="789" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" pref="245" max="-2" attributes="0"/>
                       <Component id="jSeparator1" min="-2" pref="789" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" pref="119" max="-2" attributes="0"/>
@@ -129,7 +130,9 @@
                   <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel3" min="-2" pref="22" max="-2" attributes="0"/>
-                  <EmptySpace pref="348" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jComboBox1" min="-2" pref="31" max="-2" attributes="0"/>
+                  <EmptySpace pref="320" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -180,6 +183,28 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Fuente principal de ingresos:"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="jComboBox1">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="7">
+                <StringItem index="0" value="Selecciona una opci&#xf3;n"/>
+                <StringItem index="1" value="Salario/Empleo fijo"/>
+                <StringItem index="2" value="Trabajo independiente"/>
+                <StringItem index="3" value="Negocio propio"/>
+                <StringItem index="4" value="Pensi&#xf3;n"/>
+                <StringItem index="5" value="Inversiones"/>
+                <StringItem index="6" value="Otros"/>
+              </StringArray>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Seleccione una opcion"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
