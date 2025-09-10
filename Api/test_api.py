@@ -2,7 +2,7 @@ import pytest
 import json
 import jwt
 import datetime
-from unittest.mock import Mock, patch, MagicMock
+from unittest.mock import Mock, patch
 from werkzeug.security import generate_password_hash
 from bson import ObjectId
 
