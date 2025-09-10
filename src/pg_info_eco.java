@@ -33,6 +33,8 @@ public class pg_info_eco extends javax.swing.JPanel {
         jButton1.setText("jButton1");
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setPreferredSize(new java.awt.Dimension(882, 480));
+        jPanel2.setVerifyInputWhenFocusTarget(false);
 
         jLabel1.setText("Informacion economica");
 
@@ -51,7 +53,7 @@ public class pg_info_eco extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(174, 174, 174)
                         .addComponent(jLabel2)))
-                .addContainerGap(191, Short.MAX_VALUE))
+                .addContainerGap(541, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -60,7 +62,7 @@ public class pg_info_eco extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(131, 131, 131)
                 .addComponent(jLabel2)
-                .addContainerGap(259, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

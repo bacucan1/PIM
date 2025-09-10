@@ -59,14 +59,14 @@ public class registro extends javax.swing.JPanel {
             }
         });
 
-        correo_rg.setFont(new java.awt.Font("Sans Serif Collection", 0, 30)); // NOI18N
+        correo_rg.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
         correo_rg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 correo_rgActionPerformed(evt);
             }
         });
 
-        contraseña_rg.setFont(new java.awt.Font("Sans Serif Collection", 0, 30)); // NOI18N
+        contraseña_rg.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Sans Serif Collection", 0, 52)); // NOI18N
@@ -131,7 +131,7 @@ public class registro extends javax.swing.JPanel {
                 .addComponent(bt_re, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
