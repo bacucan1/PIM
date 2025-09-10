@@ -121,7 +121,7 @@ def recibir_datos(current_user):
             }), 400
         
         # Agregar timestamp y user_id a los datos
-        data['timestamp'] = datetime.datetime.now()
+        data['timestamp'] = datetime.datetime.now(datetime.timezone.utc)
         data['user_id'] = str(current_user['_id'])
         
         # Guardar en MongoDB
@@ -184,8 +184,8 @@ def recibir_info_financiera(current_user):
                 'transporte': data.get('transporte', 0),
                 'otros_gastos_fijos': data.get('otros_gastos_fijos', 0)
             },
-            'timestamp': datetime.datetime.now(),
-            'updated_at': datetime.datetime.now()
+            'timestamp': datetime.datetime.now(datetime.timezone.utc),
+            'updated_at': datetime.datetime.now(datetime.timezone.utc)
         }
         
         # Verificar si el usuario ya tiene información financiera
@@ -193,7 +193,7 @@ def recibir_info_financiera(current_user):
         
         if existing_info:
             # Actualizar información existente
-            financial_data['created_at'] = existing_info.get('created_at', datetime.datetime.now())
+            financial_data['created_at'] = existing_info.get('created_at', datetime.datetime.now(datetime.timezone.utc))
             result = financial_info_collection.replace_one(
                 {'user_id': str(current_user['_id'])}, 
                 financial_data
@@ -202,7 +202,7 @@ def recibir_info_financiera(current_user):
             record_id = str(existing_info['_id'])
         else:
             # Crear nueva información
-            financial_data['created_at'] = datetime.datetime.now()
+            financial_data['created_at'] = datetime.datetime.now(datetime.timezone.utc)
             result = financial_info_collection.insert_one(financial_data)
             action = "creada"
             record_id = str(result.inserted_id)
@@ -326,7 +326,7 @@ def registro():
         nuevo_usuario = {
             'email': data['email'],
             'password': generate_password_hash(data['password']),
-            'created_at': datetime.datetime.now()
+            'created_at': datetime.datetime.now(datetime.timezone.utc)
         }
         
         result = users_collection.insert_one(nuevo_usuario)
@@ -363,7 +363,7 @@ def login():
         # Generar token
         token = jwt.encode({
             'email': usuario['email'],
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
+            'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(hours=24)
         }, app.config['SECRET_KEY'], algorithm="HS256")
         
         return jsonify({
