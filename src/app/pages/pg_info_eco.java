@@ -9,12 +9,12 @@ package app.pages;
  *
  * @author sergi
  */
-public class pg_info_eco extends javax.swing.JPanel {
+public class Pg_info_eco extends javax.swing.JPanel {
 
     /**
      * Creates new form info_eco
      */
-    public pg_info_eco() {
+    public Pg_info_eco() {
         initComponents();
     }
 

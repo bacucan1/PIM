@@ -17,12 +17,12 @@ import javax.swing.JOptionPane;
  *
  * @author sergi
  */
-public class registro extends javax.swing.JPanel {
+public class Registro extends javax.swing.JPanel {
 
     /**
-     * Creates new form login
+     * Creates new form Login
      */
-    public registro() {
+    public Registro() {
         initComponents();
     }
 
@@ -165,9 +165,9 @@ public class registro extends javax.swing.JPanel {
             if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_CREATED) {
                 JOptionPane.showMessageDialog(this, "Usuario registrado con éxito ✅");
 
-                // Ir automáticamente al login
-                login p2 = new login();
-                inicio parent = (inicio) javax.swing.SwingUtilities.getWindowAncestor(this);
+                // Ir automáticamente al Login
+                Login p2 = new Login();
+                Inicio parent = (Inicio) javax.swing.SwingUtilities.getWindowAncestor(this);
                 parent.ShowPanel(p2);
             } else {
                 JOptionPane.showMessageDialog(this, "Error al registrar: " + responseCode);
@@ -184,7 +184,7 @@ public class registro extends javax.swing.JPanel {
     }//GEN-LAST:event_correo_rgActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        inicio ventana = new inicio(); // Instancia la clase inicio
+        Inicio ventana = new Inicio(); // Instancia la clase Inicio
         ventana.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

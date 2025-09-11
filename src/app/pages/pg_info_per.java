@@ -1,21 +1,19 @@
 package app.pages;
 
+import app.config.ApiClient;
 import app.session.UserSession;
 import app.config.ApiConfig;
 import app.model.Datos_per;
 import com.google.gson.Gson;
-import java.io.OutputStream;
+/*import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.URL;
+import java.net.URL;*/
 
-public class pg_info_per extends javax.swing.JPanel {
+public class Pg_info_per extends javax.swing.JPanel {
 
- 
-    public pg_info_per() {
+    public Pg_info_per() {
         initComponents();
     }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -176,9 +174,8 @@ public class pg_info_per extends javax.swing.JPanel {
 
     private void bt_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_guardarActionPerformed
 
-        // Crear objeto Datos_per con los datos del formulario
+        // 1. Crear objeto con los datos del formulario
         Datos_per persona = new Datos_per();
-
         persona.setNombreCompleto(txf_nombre.getText());
         persona.setTipoDocumento(tipo_doc.getSelectedItem().toString());
         persona.setNumeroDocumento(txf_documento.getText());
@@ -187,58 +184,37 @@ public class pg_info_per extends javax.swing.JPanel {
         try {
             persona.setEdad(Integer.parseInt(txf_edad.getText()));
         } catch (NumberFormatException e) {
-            persona.setEdad(0); // Valor por defecto si no es número
+            persona.setEdad(0); // Valor por defecto
         }
 
         persona.setNacionalidad(txf_nacional.getText());
 
-        // Convertir a JSON con Gson
+        // 2. Convertir a JSON
         Gson gson = new Gson();
         String jsonPersona = gson.toJson(persona);
 
         System.out.println("Persona en JSON:");
         System.out.println(jsonPersona);
 
-        try {
-            // URL de tu API
-            //URL url = new URL("https://59a231a4d0fd.ngrok-free.app/persona");
-            // En bt_guardarActionPerformed, antes de hacer la conexión:
-            String token = UserSession.getInstance().getToken();
-            if (token == null) {
-                javax.swing.JOptionPane.showMessageDialog(this, "No hay sesión activa. Por favor, inicie sesión.");
-                return;
-            }
-
-// Modifica la conexión agregando el header del token:
-            URL url = new URL(ApiConfig.PERSONAS_URL + "info_personal");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/json; utf-8");
-            conn.setRequestProperty("Accept", "application/json");
-            conn.setRequestProperty("x-access-token", token); // Agregar el token
-            conn.setDoOutput(true);
-
-            // Enviar JSON
-            try (OutputStream os = conn.getOutputStream()) {
-                byte[] input = jsonPersona.getBytes("utf-8");
-                os.write(input, 0, input.length);
-            }
-
-            // Leer respuesta
-            int status = conn.getResponseCode();
-            System.out.println("Código de respuesta: " + status);
-
-            conn.disconnect();
-
-            // Mensaje al usuario
-            javax.swing.JOptionPane.showMessageDialog(this, "Datos enviados correctamente a la API");
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            javax.swing.JOptionPane.showMessageDialog(this, "Error al enviar: " + e.getMessage());
+        // 3. Verificar sesión
+        String token = UserSession.getInstance().getToken();
+        if (token == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No hay sesión activa.");
+            return;
         }
 
-        // (Opcional) limpiar campos después de guardar
+        // 4. Enviar datos con mónada Try (ApiClient)
+        ApiClient.enviarDatos(ApiConfig.PERSONAS_URL + "info_personal", jsonPersona, token)
+                .onSuccess(status -> {
+                    System.out.println("Código de respuesta: " + status);
+                    javax.swing.JOptionPane.showMessageDialog(this, "Datos enviados correctamente");
+                })
+                .onFailure(e -> {
+                    e.printStackTrace();
+                    javax.swing.JOptionPane.showMessageDialog(this, "Error al enviar: " + e.getMessage());
+                });
+
+        // 5. Limpiar campos después de guardar
         txf_documento.setText("");
         txf_edad.setText("");
         txf_fecha_na.setText("");

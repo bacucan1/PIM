@@ -24,12 +24,12 @@ import javax.swing.JPanel;
  *
  * @author sergi
  */
-public class login extends javax.swing.JPanel {
+public class Login extends javax.swing.JPanel {
 
     /**
      * Creates new form login
      */
-    public login() {
+    public Login() {
         initComponents();
     }
 
@@ -194,7 +194,7 @@ public class login extends javax.swing.JPanel {
 
             // Aquí podrías abrir el panel principal de la app
             JPanel DashBoard = new DashBoard();
-            inicio parent = (inicio) javax.swing.SwingUtilities.getWindowAncestor(this);
+            Inicio parent = (Inicio) javax.swing.SwingUtilities.getWindowAncestor(this);
             parent.ShowPanel(DashBoard);
         }       
         
@@ -217,7 +217,7 @@ public class login extends javax.swing.JPanel {
     }//GEN-LAST:event_correo_lgActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       inicio ventana = new inicio(); // Instancia la clase inicio
+       Inicio ventana = new Inicio(); // Instancia la clase Inicio
        ventana.setVisible(true);     // Muestra la ventana
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -236,7 +236,7 @@ public class login extends javax.swing.JPanel {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    private void ShowPanel(login p2) {
+    private void ShowPanel(Login p2) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

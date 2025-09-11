@@ -21,12 +21,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author sergi
  */
-public class pg_info_res extends javax.swing.JPanel {
+public class Pg_info_res extends javax.swing.JPanel {
 
     /**
      * Creates new form pg_info_res
      */
-    public pg_info_res() {
+    public Pg_info_res() {
         initComponents();
         jButton1.setText("Cargar datos");
         jButton1.addActionListener(e -> cargarDatos());

@@ -1,9 +1,9 @@
 package app.ui;
 
 
-import app.pages.pg_info_eco;
-import app.pages.pg_info_per;
-import app.pages.pg_info_res;
+import app.pages.Pg_info_eco;
+import app.pages.Pg_info_per;
+import app.pages.Pg_info_res;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
@@ -23,7 +23,7 @@ public class DashBoard extends javax.swing.JPanel {
      */
     public DashBoard() {
         initComponents();
-        pg_info_res p4 = new pg_info_res();
+        Pg_info_res p4 = new Pg_info_res();
         ShowPanel(p4);
     }
 
@@ -124,17 +124,17 @@ public class DashBoard extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_info_resActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_info_resActionPerformed
-        pg_info_res p1 = new pg_info_res();
+        Pg_info_res p1 = new Pg_info_res();
         ShowPanel(p1);
     }//GEN-LAST:event_bt_info_resActionPerformed
 
     private void bt_info_perActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_info_perActionPerformed
-        pg_info_per p2 = new pg_info_per();
+        Pg_info_per p2 = new Pg_info_per();
         ShowPanel(p2);
     }//GEN-LAST:event_bt_info_perActionPerformed
 
     private void bt_info_ecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_info_ecoActionPerformed
-        pg_info_eco p3 = new pg_info_eco();
+        Pg_info_eco p3 = new Pg_info_eco();
         ShowPanel(p3);
     }//GEN-LAST:event_bt_info_ecoActionPerformed
     private void ShowPanel(JPanel p) {

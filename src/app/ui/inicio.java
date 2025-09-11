@@ -12,14 +12,14 @@ import javax.swing.JPanel;
  *
  * @author sergi
  */
-public class inicio extends javax.swing.JFrame {
+public class Inicio extends javax.swing.JFrame {
 
     /**
-     * Creates new form inicio
+     * Creates new form Inicio
      */
     public static JPanel panelInicioStatic;
 
-    public inicio() {
+    public Inicio() {
         initComponents();
         panelInicioStatic = cn_inicio; // guardar referencia original
     }
@@ -116,12 +116,12 @@ public class inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_regisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_regisActionPerformed
-        registro p1 = new registro();
+        Registro p1 = new Registro();
         ShowPanel(p1);
     }//GEN-LAST:event_bt_regisActionPerformed
 
     private void bt_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_loginActionPerformed
-        login p2 = new login();
+        Login p2 = new Login();
         ShowPanel(p2);
     }//GEN-LAST:event_bt_loginActionPerformed
     void ShowPanel(JPanel p) {
@@ -151,20 +151,21 @@ public class inicio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new inicio().setVisible(true);
+                new Inicio().setVisible(true);
             }
         });
     }

@@ -12,9 +12,9 @@ import javax.swing.JPanel;
  *
  * @author crfeg
  */
-public class inicioPanel extends JPanel {
+public class InicioPanel extends JPanel {
 
-    public inicioPanel() {
+    public InicioPanel() {
     }
     
 }
