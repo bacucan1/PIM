@@ -2,104 +2,20 @@ package app.pages;
 
 import app.session.UserSession;
 import app.config.ApiConfig;
+import app.model.Datos_per;
 import com.google.gson.Gson;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-/*
-
-
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
-
-/**
- *
- * @author sergi
- */
 public class pg_info_per extends javax.swing.JPanel {
 
-    /**
-     * Creates new form info_per
-     */
+ 
     public pg_info_per() {
         initComponents();
     }
 
-    public class Persona {
 
-        private String nombreCompleto;
-        private String tipoDocumento;
-        private String numeroDocumento;
-        private String fechaNacimiento;
-        private int edad;
-        private String nacionalidad;
-
-        // Constructor vacío
-        public Persona() {
-        }
-
-        // Constructor con parámetros
-        public Persona(String nombreCompleto, String tipoDocumento, String numeroDocumento,
-                String fechaNacimiento, int edad, String nacionalidad) {
-            this.nombreCompleto = nombreCompleto;
-            this.tipoDocumento = tipoDocumento;
-            this.numeroDocumento = numeroDocumento;
-            this.fechaNacimiento = fechaNacimiento;
-            this.edad = edad;
-            this.nacionalidad = nacionalidad;
-        }
-
-        // Getters y Setters
-        public String getNombreCompleto() {
-            return nombreCompleto;
-        }
-
-        public void setNombreCompleto(String nombreCompleto) {
-            this.nombreCompleto = nombreCompleto;
-        }
-
-        public String getTipoDocumento() {
-            return tipoDocumento;
-        }
-
-        public void setTipoDocumento(String tipoDocumento) {
-            this.tipoDocumento = tipoDocumento;
-        }
-
-        public String getNumeroDocumento() {
-            return numeroDocumento;
-        }
-
-        public void setNumeroDocumento(String numeroDocumento) {
-            this.numeroDocumento = numeroDocumento;
-        }
-
-        public String getFechaNacimiento() {
-            return fechaNacimiento;
-        }
-
-        public void setFechaNacimiento(String fechaNacimiento) {
-            this.fechaNacimiento = fechaNacimiento;
-        }
-
-        public int getEdad() {
-            return edad;
-        }
-
-        public void setEdad(int edad) {
-            this.edad = edad;
-        }
-
-        public String getNacionalidad() {
-            return nacionalidad;
-        }
-
-        public void setNacionalidad(String nacionalidad) {
-            this.nacionalidad = nacionalidad;
-        }
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -260,8 +176,8 @@ public class pg_info_per extends javax.swing.JPanel {
 
     private void bt_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_guardarActionPerformed
 
-        // Crear objeto Persona con los datos del formulario
-        Persona persona = new Persona();
+        // Crear objeto Datos_per con los datos del formulario
+        Datos_per persona = new Datos_per();
 
         persona.setNombreCompleto(txf_nombre.getText());
         persona.setTipoDocumento(tipo_doc.getSelectedItem().toString());
