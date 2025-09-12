@@ -280,24 +280,86 @@ def recibir_info_financiera(current_user):
         connect_result = safe_mongodb_connect()
         if not connect_result.is_success:
             return jsonify({"error": connect_result.error}), 500
-    
+
+    # Función de validación específica para datos financieros del cliente Java
+    def validate_financial_data_java(data):
+        """Valida los datos financieros enviados desde el cliente Java"""
+        required_fields = ['fuenteIngreso', 'ingreso']
+        errors = []
+        
+        # Verificar campos requeridos
+        for field in required_fields:
+            if field not in data:
+                errors.append(f"Campo requerido faltante: {field}")
+        
+        # Validar que ingreso sea un número positivo
+        if 'ingreso' in data:
+            try:
+                ingreso = float(data['ingreso'])
+                if ingreso < 0:
+                    errors.append("El ingreso no puede ser negativo")
+            except (ValueError, TypeError):
+                errors.append("El ingreso debe ser un número válido")
+        
+        # Validar campos de gastos (opcional, pero si están presentes deben ser números)
+        gastos_fields = ['arriendoHipo', 'services', 'alimentacion', 'transporte', 'otros']
+        for field in gastos_fields:
+            if field in data:
+                try:
+                    valor = float(data[field])
+                    if valor < 0:
+                        errors.append(f"El campo {field} no puede ser negativo")
+                except (ValueError, TypeError):
+                    errors.append(f"El campo {field} debe ser un número válido")
+        
+        # Validar fuente de ingreso
+        if 'fuenteIngreso' in data:
+            fuentes_validas = [
+                'salario/empleo fijo', 'trabajo independiente', 
+                'negocio propio', 'pensión', 'inversiones', 'otros'
+            ]
+            fuente = data['fuenteIngreso'].lower().strip()
+            if fuente not in fuentes_validas and fuente != 'selecciona una opción':
+                errors.append("Fuente de ingreso no válida")
+        
+        if errors:
+            return Result.failure("; ".join(errors))
+        
+        return Result.success(data)
+
     # Procesamiento usando monadas
     def create_financial_data(validated_data):
+        # Calcular total de gastos
+        total_gastos = sum([
+            float(validated_data.get('arriendoHipo', 0)),
+            float(validated_data.get('services', 0)),
+            float(validated_data.get('alimentacion', 0)),
+            float(validated_data.get('transporte', 0)),
+            float(validated_data.get('otros', 0))
+        ])
+        
+        ingreso_mensual = float(validated_data['ingreso'])
+        disponible = ingreso_mensual - total_gastos
+        
         return Result.success({
             'user_id': str(current_user['_id']),
-            'fuente_principal': validated_data['fuente_principal'].lower(),
-            'ingreso_mensual': validated_data['ingreso_mensual'],
+            'fuente_principal': validated_data['fuenteIngreso'].lower().strip(),
+            'ingreso_mensual': ingreso_mensual,
             'gastos': {
-                'arriendo_hipoteca': validated_data.get('arriendo_hipoteca', 0),
-                'servicios': validated_data.get('servicios', 0),
-                'alimentacion': validated_data.get('alimentacion', 0),
-                'transporte': validated_data.get('transporte', 0),
-                'otros_gastos_fijos': validated_data.get('otros_gastos_fijos', 0)
+                'arriendo_hipoteca': float(validated_data.get('arriendoHipo', 0)),
+                'servicios': float(validated_data.get('services', 0)),
+                'alimentacion': float(validated_data.get('alimentacion', 0)),
+                'transporte': float(validated_data.get('transporte', 0)),
+                'otros_gastos_fijos': float(validated_data.get('otros', 0))
+            },
+            'totales': {
+                'total_gastos': total_gastos,
+                'disponible': disponible
             },
             'timestamp': datetime.datetime.now(datetime.timezone.utc),
             'updated_at': datetime.datetime.now(datetime.timezone.utc)
         })
-    
+
     def save_financial_data(financial_data):
         try:
             existing_info = financial_info_collection.find_one({'user_id': str(current_user['_id'])})
@@ -305,36 +367,40 @@ def recibir_info_financiera(current_user):
             if existing_info:
                 financial_data['created_at'] = existing_info.get('created_at', datetime.datetime.now(datetime.timezone.utc))
                 financial_info_collection.replace_one({'user_id': str(current_user['_id'])}, financial_data)
-                return Result.success({"action": "actualizada", "id": str(existing_info['_id'])})
+                return Result.success({
+                    "action": "actualizada", 
+                    "id": str(existing_info['_id']),
+                    "financial_data": financial_data
+                })
             else:
                 financial_data['created_at'] = datetime.datetime.now(datetime.timezone.utc)
                 result = financial_info_collection.insert_one(financial_data)
-                return Result.success({"action": "creada", "id": str(result.inserted_id)})
+                return Result.success({
+                    "action": "creada", 
+                    "id": str(result.inserted_id),
+                    "financial_data": financial_data
+                })
         except Exception as e:
             return Result.failure(f"Error al guardar datos: {str(e)}")
-    
+
+    # Cadena de procesamiento usando monadas
     result = (validate_json_data(request)
-             .bind(validate_financial_data_monad)
-             .bind(create_financial_data)
-             .bind(save_financial_data))
-    
+              .bind(validate_financial_data_java)
+              .bind(create_financial_data)
+              .bind(save_financial_data))
+
     if result.is_success:
-        data = request.get_json()
-        total_gastos = sum([
-            float(data.get('arriendo_hipoteca', 0)),
-            float(data.get('servicios', 0)),
-            float(data.get('alimentacion', 0)),
-            float(data.get('transporte', 0)),
-            float(data.get('otros_gastos_fijos', 0))
-        ])
+        financial_data = result.value['financial_data']
         
         return jsonify({
             "mensaje": f"Información financiera {result.value['action']} correctamente",
             "id": result.value['id'],
             "resumen": {
-                "fuente_principal": data['fuente_principal'].lower(),
-                "ingreso_mensual": data['ingreso_mensual'],
-                "total_gastos": total_gastos
+                "fuente_principal": financial_data['fuente_principal'],
+                "ingreso_mensual": financial_data['ingreso_mensual'],
+                "total_gastos": financial_data['totales']['total_gastos'],
+                "disponible": financial_data['totales']['disponible'],
+                "gastos_detallados": financial_data['gastos']
             }
         })
     else:
