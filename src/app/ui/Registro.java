@@ -1,7 +1,7 @@
 package app.ui;
 
 
-import app.model.Usuario;
+import app.datos.Usuario;
 import app.config.ApiConfig;
 import com.google.gson.Gson;
 import java.io.OutputStream;

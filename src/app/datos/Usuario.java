@@ -1,4 +1,4 @@
-package app.model;
+package app.datos;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

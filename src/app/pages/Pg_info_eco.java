@@ -1,10 +1,17 @@
 package app.pages;
 
+import app.config.ApiClient;
+import app.config.ApiConfig;
+import app.datos.Datos_eco;
+import app.session.UserSession;
+import com.google.gson.Gson;
+import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-
 /**
  *
  * @author sergi
@@ -39,27 +46,27 @@ public class Pg_info_eco extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cmb_fuenteIngreso = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txf_ingreso = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel7 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        txf_alimentacion = new javax.swing.JTextField();
+        txf_arriendoHipo = new javax.swing.JTextField();
+        txf_services = new javax.swing.JTextField();
+        txf_transporte = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txf_otros = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        bt_info_eco = new javax.swing.JButton();
+        show_totalGastos = new javax.swing.JTextField();
+        show_disponible = new javax.swing.JTextField();
 
         jButton1.setText("jButton1");
 
@@ -103,12 +110,12 @@ public class Pg_info_eco extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Fuente principal de ingresos:");
 
-        jComboBox1.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opción", "Salario/Empleo fijo", "Trabajo independiente", "Negocio propio", "Pensión", "Inversiones", "Otros" }));
-        jComboBox1.setToolTipText("Seleccione una opcion");
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cmb_fuenteIngreso.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        cmb_fuenteIngreso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opción", "Salario/Empleo fijo", "Trabajo independiente", "Negocio propio", "Pensión", "Inversiones", "Otros" }));
+        cmb_fuenteIngreso.setToolTipText("Seleccione una opcion");
+        cmb_fuenteIngreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cmb_fuenteIngresoActionPerformed(evt);
             }
         });
 
@@ -116,11 +123,11 @@ public class Pg_info_eco extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Ingreso mensual:");
 
-        jTextField1.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jTextField1.setText("$ 0,00");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txf_ingreso.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        txf_ingreso.setText("$ 0,00");
+        txf_ingreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txf_ingresoActionPerformed(evt);
             }
         });
 
@@ -138,17 +145,23 @@ public class Pg_info_eco extends javax.swing.JPanel {
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Arriendo/Hipoteca: ");
 
-        jTextField2.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jTextField2.setText("$ 0,00");
+        txf_alimentacion.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        txf_alimentacion.setText("$ 0,00");
+        txf_alimentacion.setMinimumSize(new java.awt.Dimension(70, 39));
+        txf_alimentacion.setPreferredSize(new java.awt.Dimension(70, 39));
 
-        jTextField3.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jTextField3.setText("$ 0,00");
+        txf_arriendoHipo.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        txf_arriendoHipo.setText("$ 0,00");
+        txf_arriendoHipo.setPreferredSize(new java.awt.Dimension(70, 39));
 
-        jTextField4.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jTextField4.setText("$ 0,00");
+        txf_services.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        txf_services.setText("$ 0,00");
+        txf_services.setMinimumSize(new java.awt.Dimension(70, 39));
+        txf_services.setPreferredSize(new java.awt.Dimension(70, 39));
 
-        jTextField5.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jTextField5.setText("$ 0,00");
+        txf_transporte.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        txf_transporte.setText("$ 0,00");
+        txf_transporte.setPreferredSize(new java.awt.Dimension(70, 39));
 
         jLabel8.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -166,8 +179,9 @@ public class Pg_info_eco extends javax.swing.JPanel {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Otros Gastos Fijos:");
 
-        jTextField6.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jTextField6.setText("$ 0,00");
+        txf_otros.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        txf_otros.setText("$ 0,00");
+        txf_otros.setPreferredSize(new java.awt.Dimension(70, 39));
 
         jLabel12.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
@@ -177,18 +191,29 @@ public class Pg_info_eco extends javax.swing.JPanel {
         jLabel13.setForeground(new java.awt.Color(255, 255, 255));
         jLabel13.setText("Disponible:");
 
-        jButton2.setBackground(new java.awt.Color(107, 52, 45));
-        jButton2.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Guardar");
+        bt_info_eco.setBackground(new java.awt.Color(107, 52, 45));
+        bt_info_eco.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        bt_info_eco.setForeground(new java.awt.Color(255, 255, 255));
+        bt_info_eco.setText("Guardar");
+        bt_info_eco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_info_ecoActionPerformed(evt);
+            }
+        });
 
-        jTextField7.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField7.setText("$");
+        show_totalGastos.setEditable(false);
+        show_totalGastos.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        show_totalGastos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                show_totalGastosActionPerformed(evt);
+            }
+        });
 
-        jTextField8.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jTextField8.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField8.setText("jTextField8");
+        show_disponible.setEditable(false);
+        show_disponible.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        show_disponible.setToolTipText("");
+        show_disponible.setMinimumSize(new java.awt.Dimension(70, 39));
+        show_disponible.setPreferredSize(null);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -205,12 +230,12 @@ public class Pg_info_eco extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jTextField3)
+                                    .addComponent(txf_arriendoHipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txf_services, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -219,21 +244,21 @@ public class Pg_info_eco extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txf_alimentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(txf_transporte, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmb_fuenteIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txf_ingreso, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txf_otros, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(151, 151, 151))
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -242,10 +267,10 @@ public class Pg_info_eco extends javax.swing.JPanel {
                             .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
+                            .addComponent(show_totalGastos)
+                            .addComponent(show_disponible, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(bt_info_eco)
                         .addGap(154, 154, 154))))
         );
         jPanel2Layout.setVerticalGroup(
@@ -259,11 +284,11 @@ public class Pg_info_eco extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmb_fuenteIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txf_ingreso, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -279,28 +304,28 @@ public class Pg_info_eco extends javax.swing.JPanel {
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txf_alimentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txf_services, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txf_transporte, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txf_arriendoHipo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txf_otros, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(144, 144, 144))
+                        .addComponent(bt_info_eco, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(125, 125, 125))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(show_totalGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(show_disponible, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -321,19 +346,90 @@ public class Pg_info_eco extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void show_totalGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_totalGastosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_show_totalGastosActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void bt_info_ecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_info_ecoActionPerformed
+        Datos_eco eco = new Datos_eco();
+
+        // Validar y obtener ingreso mensual
+        try {
+            eco.setIngreso(Double.parseDouble(txf_ingreso.getText()));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor ingresa un número válido en Ingreso Mensual.");
+            txf_ingreso.requestFocus();
+            return;
+        }
+
+        // Validar y obtener otros campos numéricos
+        try {
+            eco.setArriendoHipo(Double.parseDouble(txf_arriendoHipo.getText()));
+            eco.setServices(Double.parseDouble(txf_services.getText()));
+            eco.setAlimentacion(Double.parseDouble(txf_alimentacion.getText()));
+            eco.setTransporte(Double.parseDouble(txf_transporte.getText()));
+            eco.setOtros(Double.parseDouble(txf_otros.getText()));
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Por favor ingresa números válidos en los campos de gastos.");
+            return;
+        }
+
+        eco.setFuenteIngreso(cmb_fuenteIngreso.getSelectedItem().toString());
+        // Mostrar resultados en los JTextField
+        eco.calcularTotales();
+        show_totalGastos.setText(String.valueOf(eco.getTotalGastos()));
+        show_disponible.setText(String.valueOf(eco.getDisponible()));
+        // Calcular con el método de la clase
+
+        // Convertir a JSON
+        Gson gson = new Gson();
+        String jsonEco = gson.toJson(eco);
+
+        System.out.println("Información Económica en JSON:");
+        System.out.println(jsonEco);
+
+        // Verificar sesión
+        String token = UserSession.getInstance().getToken();
+        if (token == null) {
+            JOptionPane.showMessageDialog(this, "No hay sesión activa.");
+            return;
+        }
+
+        // Enviar datos
+        ApiClient.enviarDatos(ApiConfig.PERSONAS_URL + "info_economica", jsonEco, token)
+        .onSuccess(status -> {
+            // Mostrar mensaje en el hilo de la UI
+            SwingUtilities.invokeLater(() -> {
+                JOptionPane.showMessageDialog(this, "Datos económicos enviados correctamente. Código: " + status);
+                // Limpiar campos
+                txf_ingreso.setText("");
+                txf_arriendoHipo.setText("");
+                txf_services.setText("");
+                txf_alimentacion.setText("");
+                txf_transporte.setText("");
+                txf_otros.setText("");
+            });
+        })
+        .onFailure(e -> {
+            SwingUtilities.invokeLater(() -> {
+                JOptionPane.showMessageDialog(this, "Error al enviar: " + e.getMessage());
+            });
+        });
+    }//GEN-LAST:event_bt_info_ecoActionPerformed
+
+    private void txf_ingresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_ingresoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txf_ingresoActionPerformed
+
+    private void cmb_fuenteIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmb_fuenteIngresoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmb_fuenteIngresoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_info_eco;
+    private javax.swing.JComboBox<String> cmb_fuenteIngreso;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -356,13 +452,13 @@ public class Pg_info_eco extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField show_disponible;
+    private javax.swing.JTextField show_totalGastos;
+    private javax.swing.JTextField txf_alimentacion;
+    private javax.swing.JTextField txf_arriendoHipo;
+    private javax.swing.JTextField txf_ingreso;
+    private javax.swing.JTextField txf_otros;
+    private javax.swing.JTextField txf_services;
+    private javax.swing.JTextField txf_transporte;
     // End of variables declaration//GEN-END:variables
 }

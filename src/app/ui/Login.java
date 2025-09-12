@@ -2,7 +2,7 @@ package app.ui;
 
 
 import app.session.UserSession;
-import app.model.Usuario;
+import app.datos.Usuario;
 import app.config.ApiConfig;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
