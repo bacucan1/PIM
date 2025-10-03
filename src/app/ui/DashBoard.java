@@ -25,6 +25,7 @@ public class DashBoard extends javax.swing.JPanel {
         initComponents();
         Pg_info_res p4 = new Pg_info_res();
         ShowPanel(p4);
+        
     }
 
     /**
@@ -64,12 +65,13 @@ public class DashBoard extends javax.swing.JPanel {
         });
 
         content.setBackground(new java.awt.Color(204, 204, 204));
+        content.setPreferredSize(new java.awt.Dimension(768, 0));
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 545, Short.MAX_VALUE)
+            .addGap(0, 768, Short.MAX_VALUE)
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,9 +82,6 @@ public class DashBoard extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img_DSH.png"))); // NOI18N
         jLabel3.setToolTipText("");
-        jLabel3.setMaximumSize(new java.awt.Dimension(200, 200));
-        jLabel3.setMinimumSize(new java.awt.Dimension(200, 200));
-        jLabel3.setPreferredSize(new java.awt.Dimension(200, 200));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -94,7 +93,7 @@ public class DashBoard extends javax.swing.JPanel {
                         .addGap(26, 26, 26)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(bt_info_res, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bt_info_eco, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                            .addComponent(bt_info_eco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bt_info_per, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18))
                     .addGroup(layout.createSequentialGroup()
@@ -118,7 +117,7 @@ public class DashBoard extends javax.swing.JPanel {
                 .addContainerGap(111, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -126,6 +125,7 @@ public class DashBoard extends javax.swing.JPanel {
     private void bt_info_resActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_info_resActionPerformed
         Pg_info_res p1 = new Pg_info_res();
         ShowPanel(p1);
+   
     }//GEN-LAST:event_bt_info_resActionPerformed
 
     private void bt_info_perActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_info_perActionPerformed

@@ -208,11 +208,13 @@
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txf_alimentacion" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="txf_services" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="txf_transporte" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="txf_arriendoHipo" alignment="1" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txf_alimentacion" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="txf_services" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="txf_transporte" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel11" min="-2" pref="10" max="-2" attributes="0"/>

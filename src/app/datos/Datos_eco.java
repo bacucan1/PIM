@@ -4,6 +4,14 @@
  */
 package app.datos;
 
+import app.config.ApiConfig;
+import app.session.UserSession;
+import com.google.gson.Gson;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class Datos_eco {
 
     private String fuenteIngresos;
@@ -101,8 +109,9 @@ public class Datos_eco {
 
     public double getDisponible() {
         return disponible;
-    }    
+    }
 // Getters y Setters
+
     public String getFuenteIngreso() {
         return fuenteIngreso;
     }
@@ -110,4 +119,9 @@ public class Datos_eco {
     public void setFuenteIngreso(String fuenteIngreso) {
         this.fuenteIngreso = fuenteIngreso;
     }
+
+    public void setDisponible(double disponible) {
+        this.disponible = disponible;
+    }
+
 }

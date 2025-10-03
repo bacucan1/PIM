@@ -1,12 +1,15 @@
 package app.pages;
 
-import app.config.ApiClient;
 import app.config.ApiConfig;
+import app.config.ApiEconomicosService;
 import app.datos.Datos_eco;
 import app.session.UserSession;
 import com.google.gson.Gson;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -21,10 +24,22 @@ public class Pg_info_eco extends javax.swing.JPanel {
     /**
      * Creates new form info_eco
      */
+
     public Pg_info_eco() {
+        
         initComponents();
     }
-
+    private void limpiarCamposEconomicos() {
+        txf_ingreso.setText("");
+        txf_arriendoHipo.setText("");
+        txf_services.setText("");
+        txf_alimentacion.setText("");
+        txf_transporte.setText("");
+        txf_otros.setText("");
+        show_totalGastos.setText("");
+        show_disponible.setText("");
+        cmb_fuenteIngreso.setSelectedIndex(-1);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -303,11 +318,12 @@ public class Pg_info_eco extends javax.swing.JPanel {
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txf_alimentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txf_services, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txf_transporte, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txf_arriendoHipo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txf_arriendoHipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txf_alimentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txf_services, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txf_transporte, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -353,68 +369,42 @@ public class Pg_info_eco extends javax.swing.JPanel {
     private void bt_info_ecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_info_ecoActionPerformed
         Datos_eco eco = new Datos_eco();
 
-        // Validar y obtener ingreso mensual
         try {
-            eco.setIngreso(Double.parseDouble(txf_ingreso.getText()));
+            // Validaciones
+            eco.setIngreso(Double.parseDouble(txf_ingreso.getText().trim()));
+            eco.setArriendoHipo(Double.parseDouble(txf_arriendoHipo.getText().trim()));
+            eco.setServices(Double.parseDouble(txf_services.getText().trim()));
+            eco.setAlimentacion(Double.parseDouble(txf_alimentacion.getText().trim()));
+            eco.setTransporte(Double.parseDouble(txf_transporte.getText().trim()));
+            eco.setOtros(Double.parseDouble(txf_otros.getText().trim()));
+            eco.setFuenteIngreso(cmb_fuenteIngreso.getSelectedItem().toString());
+            eco.calcularTotales();
+
+            show_totalGastos.setText(String.format("%.2f", eco.getTotalGastos()));
+            show_disponible.setText(String.format("%.2f", eco.getDisponible()));
+
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor ingresa un número válido en Ingreso Mensual.");
-            txf_ingreso.requestFocus();
+            JOptionPane.showMessageDialog(this, "Por favor ingresa números válidos.");
             return;
         }
 
-        // Validar y obtener otros campos numéricos
-        try {
-            eco.setArriendoHipo(Double.parseDouble(txf_arriendoHipo.getText()));
-            eco.setServices(Double.parseDouble(txf_services.getText()));
-            eco.setAlimentacion(Double.parseDouble(txf_alimentacion.getText()));
-            eco.setTransporte(Double.parseDouble(txf_transporte.getText()));
-            eco.setOtros(Double.parseDouble(txf_otros.getText()));
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor ingresa números válidos en los campos de gastos.");
-            return;
-        }
+        // Deshabilitar botón
+        bt_info_eco.setEnabled(false);
+        bt_info_eco.setText("Enviando...");
 
-        eco.setFuenteIngreso(cmb_fuenteIngreso.getSelectedItem().toString());
-        // Mostrar resultados en los JTextField
-        eco.calcularTotales();
-        show_totalGastos.setText(String.valueOf(eco.getTotalGastos()));
-        show_disponible.setText(String.valueOf(eco.getDisponible()));
-        // Calcular con el método de la clase
-
-        // Convertir a JSON
-        Gson gson = new Gson();
-        String jsonEco = gson.toJson(eco);
-
-        System.out.println("Información Económica en JSON:");
-        System.out.println(jsonEco);
-
-        // Verificar sesión
-        String token = UserSession.getInstance().getToken();
-        if (token == null) {
-            JOptionPane.showMessageDialog(this, "No hay sesión activa.");
-            return;
-        }
-
-        // Enviar datos
-        ApiClient.enviarDatos(ApiConfig.PERSONAS_URL + "info_economica", jsonEco, token)
-        .onSuccess(status -> {
-            // Mostrar mensaje en el hilo de la UI
-            SwingUtilities.invokeLater(() -> {
-                JOptionPane.showMessageDialog(this, "Datos económicos enviados correctamente. Código: " + status);
-                // Limpiar campos
-                txf_ingreso.setText("");
-                txf_arriendoHipo.setText("");
-                txf_services.setText("");
-                txf_alimentacion.setText("");
-                txf_transporte.setText("");
-                txf_otros.setText("");
-            });
-        })
-        .onFailure(e -> {
-            SwingUtilities.invokeLater(() -> {
-                JOptionPane.showMessageDialog(this, "Error al enviar: " + e.getMessage());
-            });
-        });
+        // Llamar al servicio
+        ApiEconomicosService.enviarDatosEconomicos(
+                eco,
+                () -> { // onSuccess
+                    limpiarCamposEconomicos();
+                    bt_info_eco.setEnabled(true);
+                    bt_info_eco.setText("Guardar");
+                },
+                () -> { // onFailure
+                    bt_info_eco.setEnabled(true);
+                    bt_info_eco.setText("Guardar");
+                }
+        );
     }//GEN-LAST:event_bt_info_ecoActionPerformed
 
     private void txf_ingresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_ingresoActionPerformed
