@@ -26,8 +26,15 @@ public class Pg_info_eco extends javax.swing.JPanel {
      */
 
     public Pg_info_eco() {
-        
+     
         initComponents();
+        
+        aplicarPlaceholder(txf_ingreso, "$ 0,00");
+        aplicarPlaceholder(txf_arriendoHipo, "$ 0,00");
+        aplicarPlaceholder(txf_services, "$ 0,00");
+        aplicarPlaceholder(txf_alimentacion, "$ 0,00");
+        aplicarPlaceholder(txf_transporte, "$ 0,00");
+        aplicarPlaceholder(txf_otros, "$ 0,00");
     }
     private void limpiarCamposEconomicos() {
         txf_ingreso.setText("");
@@ -40,6 +47,28 @@ public class Pg_info_eco extends javax.swing.JPanel {
         show_disponible.setText("");
         cmb_fuenteIngreso.setSelectedIndex(-1);
     }
+    private void aplicarPlaceholder(javax.swing.JTextField campo, String placeholder) {
+    campo.setText(placeholder);
+    campo.setForeground(new java.awt.Color(206, 206, 206));
+
+    campo.addFocusListener(new java.awt.event.FocusAdapter() {
+        @Override
+        public void focusGained(java.awt.event.FocusEvent e) {
+            if (campo.getText().equals(placeholder)) {
+                campo.setText("");
+                campo.setForeground(new java.awt.Color(68, 75, 89)); // color texto normal
+            }
+        }
+
+        @Override
+        public void focusLost(java.awt.event.FocusEvent e) {
+            if (campo.getText().isEmpty()) {
+                campo.setText(placeholder);
+                campo.setForeground(new java.awt.Color(206, 206, 206)); // gris placeholder
+            }
+        }
+    });
+}  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,32 +85,46 @@ public class Pg_info_eco extends javax.swing.JPanel {
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jFrame1 = new javax.swing.JFrame();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        Title = new javax.swing.JLabel();
+        jSeparatorTitle = new javax.swing.JSeparator();
+        Subtitle = new javax.swing.JLabel();
+        jSeparatorsubtitle = new javax.swing.JSeparator();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
-        jLabel3 = new javax.swing.JLabel();
+        SubtitleFuente = new javax.swing.JLabel();
         cmb_fuenteIngreso = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
+        LabelFuente = new javax.swing.JLabel();
+        Subtitle_ing = new javax.swing.JLabel();
         txf_ingreso = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
-        txf_alimentacion = new javax.swing.JTextField();
+        LabelIng = new javax.swing.JLabel();
+        SubtitleGastos = new javax.swing.JLabel();
+        jSeparatorGastos = new javax.swing.JSeparator();
+        SubtitleIng = new javax.swing.JLabel();
+        SubtitleArriendo = new javax.swing.JLabel();
         txf_arriendoHipo = new javax.swing.JTextField();
+        LabelArriendo = new javax.swing.JLabel();
+        SubtitleServ = new javax.swing.JLabel();
         txf_services = new javax.swing.JTextField();
+        LabelServ = new javax.swing.JLabel();
+        SubtitleAlim = new javax.swing.JLabel();
+        txf_alimentacion = new javax.swing.JTextField();
+        LabelAlim = new javax.swing.JLabel();
+        SubtitleTrans = new javax.swing.JLabel();
         txf_transporte = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        LabelTrans = new javax.swing.JLabel();
+        SubtextOtros = new javax.swing.JLabel();
         txf_otros = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        bt_info_eco = new javax.swing.JButton();
+        LabelOtros = new javax.swing.JLabel();
+        SubtitleTotal = new javax.swing.JLabel();
         show_totalGastos = new javax.swing.JTextField();
+        LabelTotal = new javax.swing.JLabel();
+        SubtitleDisponible = new javax.swing.JLabel();
         show_disponible = new javax.swing.JTextField();
+        LabelDisponible = new javax.swing.JLabel();
+        bt_info_eco = new javax.swing.JButton();
+        LabelButtom = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
@@ -106,271 +149,283 @@ public class Pg_info_eco extends javax.swing.JPanel {
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(107, 52, 45));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Title.setFont(new java.awt.Font("Overpass", 1, 48)); // NOI18N
+        Title.setForeground(new java.awt.Color(68, 75, 89));
+        Title.setText("Información Económica");
+        add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
+        add(jSeparatorTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 900, -1));
+
+        Subtitle.setBackground(new java.awt.Color(107, 52, 45));
+        Subtitle.setFont(new java.awt.Font("Overpass", 0, 24)); // NOI18N
+        Subtitle.setForeground(new java.awt.Color(68, 75, 89));
+        Subtitle.setText("Ingresos");
+        add(Subtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 100, 30));
+        add(jSeparatorsubtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 476, 10));
+
+        jPanel2.setBackground(new java.awt.Color(250, 250, 250));
         jPanel2.setPreferredSize(new java.awt.Dimension(545, 456));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Informacion economica");
+        SubtitleFuente.setBackground(new java.awt.Color(107, 52, 45));
+        SubtitleFuente.setFont(new java.awt.Font("Nunito ExtraLight", 0, 14)); // NOI18N
+        SubtitleFuente.setForeground(new java.awt.Color(68, 75, 89));
+        SubtitleFuente.setText("Fuente principal de ingresos");
+        jPanel2.add(SubtitleFuente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 180, 22));
 
-        jLabel2.setBackground(new java.awt.Color(107, 52, 45));
-        jLabel2.setFont(new java.awt.Font("Sans Serif Collection", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Ingresos");
-
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel3.setBackground(new java.awt.Color(107, 52, 45));
-        jLabel3.setFont(new java.awt.Font("Sans Serif Collection", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Fuente principal de ingresos:");
-
-        cmb_fuenteIngreso.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        cmb_fuenteIngreso.setBackground(new java.awt.Color(250, 250, 250));
+        cmb_fuenteIngreso.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        cmb_fuenteIngreso.setForeground(new java.awt.Color(206, 206, 206));
         cmb_fuenteIngreso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una opción", "Salario/Empleo fijo", "Trabajo independiente", "Negocio propio", "Pensión", "Inversiones", "Otros" }));
         cmb_fuenteIngreso.setToolTipText("Seleccione una opcion");
+        cmb_fuenteIngreso.setBorder(null);
+        cmb_fuenteIngreso.setOpaque(false);
         cmb_fuenteIngreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmb_fuenteIngresoActionPerformed(evt);
             }
         });
+        jPanel2.add(cmb_fuenteIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 450, 20));
 
-        jLabel4.setFont(new java.awt.Font("Sans Serif Collection", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Ingreso mensual:");
+        LabelFuente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/label2.png"))); // NOI18N
+        jPanel2.add(LabelFuente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
+        Subtitle_ing.setFont(new java.awt.Font("Nunito ExtraLight", 0, 14)); // NOI18N
+        Subtitle_ing.setForeground(new java.awt.Color(68, 75, 89));
+        Subtitle_ing.setText("Ingreso mensual");
+        jPanel2.add(Subtitle_ing, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 110, 21));
+
+        txf_ingreso.setBackground(new java.awt.Color(250, 250, 250));
         txf_ingreso.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        txf_ingreso.setForeground(new java.awt.Color(206, 206, 206));
         txf_ingreso.setText("$ 0,00");
+        txf_ingreso.setBorder(null);
+        txf_ingreso.setOpaque(false);
         txf_ingreso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txf_ingresoActionPerformed(evt);
             }
         });
+        jPanel2.add(txf_ingreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 111, 450, 40));
 
-        jLabel5.setFont(new java.awt.Font("Sans Serif Collection", 0, 8)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Ingresa tu ingreso mensual promedio");
+        LabelIng.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/label2.png"))); // NOI18N
+        jPanel2.add(LabelIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Sans Serif Collection", 0, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Gastos mensuales ");
+        SubtitleGastos.setFont(new java.awt.Font("Nunito ExtraLight", 0, 14)); // NOI18N
+        SubtitleGastos.setForeground(new java.awt.Color(68, 75, 89));
+        SubtitleGastos.setText("Gastos mensuales ");
+        jPanel2.add(SubtitleGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 29));
 
-        jSeparator2.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparatorGastos.setForeground(new java.awt.Color(68, 75, 89));
+        jPanel2.add(jSeparatorGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 476, 10));
 
-        jLabel7.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Arriendo/Hipoteca: ");
+        SubtitleIng.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        SubtitleIng.setForeground(new java.awt.Color(68, 75, 89));
+        SubtitleIng.setText("Ingresa tu ingreso mensual promedio");
+        jPanel2.add(SubtitleIng, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 217, 20));
 
-        txf_alimentacion.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        txf_alimentacion.setText("$ 0,00");
-        txf_alimentacion.setMinimumSize(new java.awt.Dimension(70, 39));
-        txf_alimentacion.setPreferredSize(new java.awt.Dimension(70, 39));
+        SubtitleArriendo.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        SubtitleArriendo.setForeground(new java.awt.Color(68, 75, 89));
+        SubtitleArriendo.setText("Arriendo/Hipoteca ");
+        jPanel2.add(SubtitleArriendo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, -1, 10));
 
-        txf_arriendoHipo.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        txf_arriendoHipo.setBackground(new java.awt.Color(250, 250, 250));
+        txf_arriendoHipo.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        txf_arriendoHipo.setForeground(new java.awt.Color(206, 206, 206));
         txf_arriendoHipo.setText("$ 0,00");
+        txf_arriendoHipo.setBorder(null);
+        txf_arriendoHipo.setOpaque(false);
         txf_arriendoHipo.setPreferredSize(new java.awt.Dimension(70, 39));
-
-        txf_services.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        txf_services.setText("$ 0,00");
-        txf_services.setMinimumSize(new java.awt.Dimension(70, 39));
-        txf_services.setPreferredSize(new java.awt.Dimension(70, 39));
-
-        txf_transporte.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        txf_transporte.setText("$ 0,00");
-        txf_transporte.setPreferredSize(new java.awt.Dimension(70, 39));
-
-        jLabel8.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Alimentación:");
-
-        jLabel9.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Servicios Públicos:");
-
-        jLabel10.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Transporte:");
-
-        jLabel11.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Otros Gastos Fijos:");
-
-        txf_otros.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        txf_otros.setText("$ 0,00");
-        txf_otros.setPreferredSize(new java.awt.Dimension(70, 39));
-
-        jLabel12.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Total Gastos Mensuales:");
-
-        jLabel13.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("Disponible:");
-
-        bt_info_eco.setBackground(new java.awt.Color(107, 52, 45));
-        bt_info_eco.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
-        bt_info_eco.setForeground(new java.awt.Color(255, 255, 255));
-        bt_info_eco.setText("Guardar");
-        bt_info_eco.addActionListener(new java.awt.event.ActionListener() {
+        txf_arriendoHipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_info_ecoActionPerformed(evt);
+                txf_arriendoHipoActionPerformed(evt);
             }
         });
+        jPanel2.add(txf_arriendoHipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 120, 20));
+
+        LabelArriendo.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        LabelArriendo.setForeground(new java.awt.Color(206, 206, 206));
+        LabelArriendo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/label3.png"))); // NOI18N
+        jPanel2.add(LabelArriendo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, -1, -1));
+
+        SubtitleServ.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        SubtitleServ.setForeground(new java.awt.Color(68, 75, 89));
+        SubtitleServ.setText("Servicios Públicos");
+        jPanel2.add(SubtitleServ, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 100, 10));
+
+        txf_services.setBackground(new java.awt.Color(250, 250, 250));
+        txf_services.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        txf_services.setForeground(new java.awt.Color(206, 206, 206));
+        txf_services.setText("$ 0,00");
+        txf_services.setBorder(null);
+        txf_services.setMinimumSize(new java.awt.Dimension(70, 39));
+        txf_services.setOpaque(false);
+        txf_services.setPreferredSize(new java.awt.Dimension(70, 39));
+        txf_services.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txf_servicesActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txf_services, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, 120, 20));
+
+        LabelServ.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/label3.png"))); // NOI18N
+        jPanel2.add(LabelServ, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
+
+        SubtitleAlim.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        SubtitleAlim.setForeground(new java.awt.Color(68, 75, 89));
+        SubtitleAlim.setText("Alimentación");
+        jPanel2.add(SubtitleAlim, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 80, 10));
+
+        txf_alimentacion.setBackground(new java.awt.Color(250, 250, 250));
+        txf_alimentacion.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        txf_alimentacion.setForeground(new java.awt.Color(206, 206, 206));
+        txf_alimentacion.setText("$ 0,00");
+        txf_alimentacion.setBorder(null);
+        txf_alimentacion.setMinimumSize(new java.awt.Dimension(70, 39));
+        txf_alimentacion.setOpaque(false);
+        txf_alimentacion.setPreferredSize(new java.awt.Dimension(70, 39));
+        txf_alimentacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txf_alimentacionActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txf_alimentacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 120, 20));
+
+        LabelAlim.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/label3.png"))); // NOI18N
+        jPanel2.add(LabelAlim, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
+
+        SubtitleTrans.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        SubtitleTrans.setForeground(new java.awt.Color(68, 75, 89));
+        SubtitleTrans.setText("Transporte");
+        jPanel2.add(SubtitleTrans, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 70, 10));
+
+        txf_transporte.setBackground(new java.awt.Color(250, 250, 250));
+        txf_transporte.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        txf_transporte.setForeground(new java.awt.Color(206, 206, 206));
+        txf_transporte.setText("$ 0,00");
+        txf_transporte.setBorder(null);
+        txf_transporte.setOpaque(false);
+        txf_transporte.setPreferredSize(new java.awt.Dimension(70, 39));
+        txf_transporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txf_transporteActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txf_transporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 119, 20));
+
+        LabelTrans.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        LabelTrans.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/label3.png"))); // NOI18N
+        LabelTrans.setOpaque(false);
+        jPanel2.add(LabelTrans, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, -1, -1));
+
+        SubtextOtros.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        SubtextOtros.setForeground(new java.awt.Color(68, 75, 89));
+        SubtextOtros.setText("Otros Gastos Fijos");
+        jPanel2.add(SubtextOtros, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 109, 20));
+
+        txf_otros.setBackground(new java.awt.Color(250, 250, 250));
+        txf_otros.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        txf_otros.setForeground(new java.awt.Color(206, 206, 206));
+        txf_otros.setText("$ 0,00");
+        txf_otros.setBorder(null);
+        txf_otros.setOpaque(false);
+        txf_otros.setPreferredSize(new java.awt.Dimension(70, 39));
+        txf_otros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txf_otrosActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txf_otros, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 380, 20));
+
+        LabelOtros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/label4.png"))); // NOI18N
+        jPanel2.add(LabelOtros, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
+
+        SubtitleTotal.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        SubtitleTotal.setForeground(new java.awt.Color(68, 75, 89));
+        SubtitleTotal.setText("Total Gastos Mensuales");
+        jPanel2.add(SubtitleTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, -1, 10));
 
         show_totalGastos.setEditable(false);
-        show_totalGastos.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        show_totalGastos.setBackground(new java.awt.Color(250, 250, 250));
+        show_totalGastos.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        show_totalGastos.setBorder(null);
+        show_totalGastos.setOpaque(false);
         show_totalGastos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 show_totalGastosActionPerformed(evt);
             }
         });
+        jPanel2.add(show_totalGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 120, 20));
+
+        LabelTotal.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        LabelTotal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/label3.png"))); // NOI18N
+        LabelTotal.setOpaque(false);
+        jPanel2.add(LabelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, -1, -1));
+
+        SubtitleDisponible.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        SubtitleDisponible.setForeground(new java.awt.Color(68, 75, 89));
+        SubtitleDisponible.setText("Disponible");
+        jPanel2.add(SubtitleDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 440, -1, 10));
 
         show_disponible.setEditable(false);
-        show_disponible.setFont(new java.awt.Font("Sans Serif Collection", 0, 12)); // NOI18N
+        show_disponible.setBackground(new java.awt.Color(250, 250, 250));
+        show_disponible.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
         show_disponible.setToolTipText("");
+        show_disponible.setBorder(null);
         show_disponible.setMinimumSize(new java.awt.Dimension(70, 39));
-        show_disponible.setPreferredSize(null);
+        show_disponible.setOpaque(false);
+        jPanel2.add(show_disponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 120, 20));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txf_arriendoHipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txf_services, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(txf_alimentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txf_transporte, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmb_fuenteIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txf_ingreso, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel6)
-                                    .addComponent(txf_otros, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(151, 151, 151))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(show_totalGastos)
-                            .addComponent(show_disponible, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bt_info_eco)
-                        .addGap(154, 154, 154))))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cmb_fuenteIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txf_ingreso, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txf_arriendoHipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txf_alimentacion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txf_services, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txf_transporte, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txf_otros, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(bt_info_eco, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(125, 125, 125))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(show_totalGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(show_disponible, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-        );
+        LabelDisponible.setFont(new java.awt.Font("Overpass", 0, 12)); // NOI18N
+        LabelDisponible.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/label3.png"))); // NOI18N
+        LabelDisponible.setOpaque(false);
+        jPanel2.add(LabelDisponible, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 450, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        bt_info_eco.setBackground(new java.awt.Color(107, 52, 45));
+        bt_info_eco.setFont(new java.awt.Font("Overpass", 0, 18)); // NOI18N
+        bt_info_eco.setForeground(new java.awt.Color(255, 255, 255));
+        bt_info_eco.setText("Guardar");
+        bt_info_eco.setBorder(null);
+        bt_info_eco.setContentAreaFilled(false);
+        bt_info_eco.setOpaque(false);
+        bt_info_eco.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_info_ecoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(bt_info_eco, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 496, 130, 30));
+
+        LabelButtom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sign In.png"))); // NOI18N
+        jPanel2.add(LabelButtom, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 490, 170, -1));
+
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 530, 560));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/decoration3.png"))); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/decoration4.png"))); // NOI18N
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void show_totalGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_show_totalGastosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_show_totalGastosActionPerformed
 
+    
     private void bt_info_ecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_info_ecoActionPerformed
         Datos_eco eco = new Datos_eco();
+              
 
         try {
             // Validaciones
+            String ingresoText = txf_ingreso.getText().replace("$", "").replace(",", "").trim();
+            if (ingresoText.isEmpty() || ingresoText.equals("0.00")) ingresoText = "0";
+            eco.setIngreso(Double.parseDouble(ingresoText));
+            
             eco.setIngreso(Double.parseDouble(txf_ingreso.getText().trim()));
             eco.setArriendoHipo(Double.parseDouble(txf_arriendoHipo.getText().trim()));
             eco.setServices(Double.parseDouble(txf_services.getText().trim()));
@@ -394,18 +449,26 @@ public class Pg_info_eco extends javax.swing.JPanel {
 
         // Llamar al servicio
         ApiEconomicosService.enviarDatosEconomicos(
-                eco,
-                () -> { // onSuccess
-                    limpiarCamposEconomicos();
-                    bt_info_eco.setEnabled(true);
-                    bt_info_eco.setText("Guardar");
-                },
-                () -> { // onFailure
-                    bt_info_eco.setEnabled(true);
-                    bt_info_eco.setText("Guardar");
-                }
+            eco,
+            () -> { // onSuccess
+                limpiarCamposEconomicos();
+                bt_info_eco.setEnabled(true);
+                bt_info_eco.setText("Guardar");
+            },
+            () -> { // onFailure
+                bt_info_eco.setEnabled(true);
+                bt_info_eco.setText("Guardar");
+            }
         );
     }//GEN-LAST:event_bt_info_ecoActionPerformed
+
+    private void txf_transporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_transporteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txf_transporteActionPerformed
+
+    private void txf_alimentacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_alimentacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txf_alimentacionActionPerformed
 
     private void txf_ingresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_ingresoActionPerformed
         // TODO add your handling code here:
@@ -415,33 +478,59 @@ public class Pg_info_eco extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cmb_fuenteIngresoActionPerformed
 
+    private void txf_servicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_servicesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txf_servicesActionPerformed
+
+    private void txf_otrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_otrosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txf_otrosActionPerformed
+
+    private void txf_arriendoHipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_arriendoHipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txf_arriendoHipoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel LabelAlim;
+    private javax.swing.JLabel LabelArriendo;
+    private javax.swing.JLabel LabelButtom;
+    private javax.swing.JLabel LabelDisponible;
+    private javax.swing.JLabel LabelFuente;
+    private javax.swing.JLabel LabelIng;
+    private javax.swing.JLabel LabelOtros;
+    private javax.swing.JLabel LabelServ;
+    private javax.swing.JLabel LabelTotal;
+    private javax.swing.JLabel LabelTrans;
+    private javax.swing.JLabel SubtextOtros;
+    private javax.swing.JLabel Subtitle;
+    private javax.swing.JLabel SubtitleAlim;
+    private javax.swing.JLabel SubtitleArriendo;
+    private javax.swing.JLabel SubtitleDisponible;
+    private javax.swing.JLabel SubtitleFuente;
+    private javax.swing.JLabel SubtitleGastos;
+    private javax.swing.JLabel SubtitleIng;
+    private javax.swing.JLabel SubtitleServ;
+    private javax.swing.JLabel SubtitleTotal;
+    private javax.swing.JLabel SubtitleTrans;
+    private javax.swing.JLabel Subtitle_ing;
+    private javax.swing.JLabel Title;
     private javax.swing.JButton bt_info_eco;
     private javax.swing.JComboBox<String> cmb_fuenteIngreso;
     private javax.swing.JButton jButton1;
     private javax.swing.JFrame jFrame1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JSeparator jSeparatorGastos;
+    private javax.swing.JSeparator jSeparatorTitle;
+    private javax.swing.JSeparator jSeparatorsubtitle;
     private javax.swing.JTextField show_disponible;
     private javax.swing.JTextField show_totalGastos;
     private javax.swing.JTextField txf_alimentacion;

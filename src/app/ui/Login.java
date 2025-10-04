@@ -14,6 +14,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
+import app.ui.Fuentes;
+import javax.swing.JFrame;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -32,7 +36,9 @@ public class Login extends javax.swing.JPanel {
     public Login() {
         initComponents();
     }
-
+   
+        
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,120 +48,142 @@ public class Login extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        Text_Correo = new javax.swing.JLabel();
         correo_lg = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        Label_Correo = new javax.swing.JLabel();
+        Text_Contraseña = new javax.swing.JLabel();
         contraseña_lg = new javax.swing.JPasswordField();
+        Label_Contraseña = new javax.swing.JLabel();
         bt_entrar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        Label_Buttom1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        Label_Buttom = new javax.swing.JLabel();
+        Titulo = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(47, 33, 0));
-        setPreferredSize(new java.awt.Dimension(882, 480));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setMinimumSize(new java.awt.Dimension(1920, 1080));
+        setPreferredSize(new java.awt.Dimension(1920, 1080));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        correo_lg.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(640, 863));
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Text_Correo.setBackground(new java.awt.Color(69, 28, 0));
+        Text_Correo.setFont(new java.awt.Font("Nunito ExtraLight", 1, 18)); // NOI18N
+        Text_Correo.setForeground(new java.awt.Color(68, 75, 89));
+        Text_Correo.setText("Correo");
+        Text_Correo.setMaximumSize(new java.awt.Dimension(198, 16));
+        jPanel1.add(Text_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 60, 48));
+
+        correo_lg.setFont(new java.awt.Font("Overpass", 0, 18)); // NOI18N
+        correo_lg.setBorder(null);
+        correo_lg.setOpaque(false);
         correo_lg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 correo_lgActionPerformed(evt);
             }
         });
+        jPanel1.add(correo_lg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 280, 40));
 
-        jLabel1.setBackground(new java.awt.Color(69, 28, 0));
-        jLabel1.setFont(new java.awt.Font("Sans Serif Collection", 0, 40)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Correo");
-        jLabel1.setMaximumSize(new java.awt.Dimension(198, 16));
+        Label_Correo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame 4.png"))); // NOI18N
+        jPanel1.add(Label_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Sans Serif Collection", 0, 40)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Contraseña");
+        Text_Contraseña.setBackground(new java.awt.Color(69, 28, 0));
+        Text_Contraseña.setFont(new java.awt.Font("Nunito ExtraLight", 1, 18)); // NOI18N
+        Text_Contraseña.setForeground(new java.awt.Color(68, 75, 89));
+        Text_Contraseña.setText("Contraseña");
+        Text_Contraseña.setMaximumSize(new java.awt.Dimension(198, 16));
+        jPanel1.add(Text_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 110, 48));
 
-        contraseña_lg.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
+        contraseña_lg.setFont(new java.awt.Font("Overpass", 0, 18)); // NOI18N
+        contraseña_lg.setBorder(null);
+        contraseña_lg.setOpaque(false);
         contraseña_lg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contraseña_lgActionPerformed(evt);
             }
         });
+        jPanel1.add(contraseña_lg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 280, 40));
 
-        bt_entrar.setBackground(new java.awt.Color(245, 245, 220));
-        bt_entrar.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
+        Label_Contraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame 4.png"))); // NOI18N
+        jPanel1.add(Label_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, -1, -1));
+
+        bt_entrar.setFont(new java.awt.Font("Nunito ExtraLight", 0, 18)); // NOI18N
+        bt_entrar.setForeground(new java.awt.Color(255, 255, 255));
         bt_entrar.setText("Entrar");
+        bt_entrar.setBorder(null);
+        bt_entrar.setContentAreaFilled(false);
+        bt_entrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bt_entrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_entrarActionPerformed(evt);
             }
         });
+        jPanel1.add(bt_entrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, 150, 40));
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Sans Serif Collection", 0, 52)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Iniciar sesion");
-        jLabel3.setMaximumSize(new java.awt.Dimension(346, 139));
+        Label_Buttom1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sign In.png"))); // NOI18N
+        jPanel1.add(Label_Buttom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
 
         jButton1.setBackground(new java.awt.Color(245, 245, 220));
-        jButton1.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Nunito ExtraLight", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Regresar");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 370, 150, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(139, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(518, 518, 518))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(227, 227, 227)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(contraseña_lg, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(correo_lg, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGap(44, 44, 44)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bt_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(308, 308, 308))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(correo_lg, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(contraseña_lg, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
-                .addComponent(bt_entrar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
-        );
+        Label_Buttom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sign In.png"))); // NOI18N
+        jPanel1.add(Label_Buttom, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 370, -1, -1));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 370, 430));
+
+        Titulo.setBackground(new java.awt.Color(255, 255, 255));
+        Titulo.setFont(new java.awt.Font("Overpass", 1, 36)); // NOI18N
+        Titulo.setForeground(new java.awt.Color(68, 75, 89));
+        Titulo.setText("¡Bienvenido de Nuevo!");
+        Titulo.setToolTipText("");
+        Titulo.setMaximumSize(new java.awt.Dimension(346, 139));
+        add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 400, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Exlorer_Illustration 1.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_entrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_entrarActionPerformed
     try {
         String correo = correo_lg.getText();
-        String contrasena = new String(contraseña_lg.getPassword());
-
+        String contrasena = new String(contraseña_lg.getPassword()).trim();
+        
+        //1.Validar
+        
+        if (correo.isEmpty() || contrasena.isEmpty()) {
+            JOptionPane.showMessageDialog(this, 
+                "Por favor completa todos los campos.", 
+                "Campos vacíos", 
+                JOptionPane.WARNING_MESSAGE);
+            return; // Detener ejecución
+        }
+        
+        //2. Validar formato del correo
+        
+        if (!correo.matches("^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$")) {
+            JOptionPane.showMessageDialog(this, 
+                "Por favor ingresa un correo válido.", 
+                "Correo inválido", 
+                JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        
         Usuario user = new Usuario(correo, contrasena);
 
         Gson gson = new Gson();
@@ -202,10 +230,12 @@ public class Login extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Credenciales incorrectas ❌");
         }
 
+    } catch (HeadlessException e) {
+        JOptionPane.showMessageDialog(this, "Error en la interfaz gráfica: " + e.getMessage());
     } catch (Exception e) {
-        JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+        JOptionPane.showMessageDialog(this, "Ocurrió un error: " + e.getMessage());
         e.printStackTrace();
-    }
+    }  
     }//GEN-LAST:event_bt_entrarActionPerformed
 
     private void contraseña_lgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseña_lgActionPerformed
@@ -223,13 +253,19 @@ public class Login extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Label_Buttom;
+    private javax.swing.JLabel Label_Buttom1;
+    private javax.swing.JLabel Label_Contraseña;
+    private javax.swing.JLabel Label_Correo;
+    private javax.swing.JLabel Text_Contraseña;
+    private javax.swing.JLabel Text_Correo;
+    private javax.swing.JLabel Titulo;
     private javax.swing.JButton bt_entrar;
     private javax.swing.JPasswordField contraseña_lg;
     private javax.swing.JTextField correo_lg;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     private void dispose() {

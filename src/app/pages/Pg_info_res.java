@@ -324,25 +324,40 @@ public class Pg_info_res extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Title = new javax.swing.JLabel();
+        jSeparatorTitle = new javax.swing.JSeparator();
+        Subtitle = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPersonas = new javax.swing.JTable();
         J_grafica = new javax.swing.JPanel();
+        Decoration1 = new javax.swing.JLabel();
+        Decoration2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(900, 468));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        Title.setFont(new java.awt.Font("Overpass", 1, 48)); // NOI18N
+        Title.setForeground(new java.awt.Color(68, 75, 89));
+        Title.setText("Información General");
+        add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+        add(jSeparatorTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 900, -1));
+
+        Subtitle.setFont(new java.awt.Font("Overpass", 1, 36)); // NOI18N
+        Subtitle.setForeground(new java.awt.Color(68, 75, 89));
+        Subtitle.setText("Estadísticas");
+        add(Subtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(250, 250, 250));
         jPanel1.setPreferredSize(new java.awt.Dimension(900, 468));
         jPanel1.setVerifyInputWhenFocusTarget(false);
-
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Resumen Principal");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablaPersonas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
-                {null, null, null, null, null},
+                {null, null, "", null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null}
             },
@@ -353,63 +368,41 @@ public class Pg_info_res extends javax.swing.JPanel {
         tablaPersonas.setRowHeight(40);
         jScrollPane1.setViewportView(tablaPersonas);
 
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 745, 230));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 770, 250));
+
         javax.swing.GroupLayout J_graficaLayout = new javax.swing.GroupLayout(J_grafica);
         J_grafica.setLayout(J_graficaLayout);
         J_graficaLayout.setHorizontalGroup(
             J_graficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 490, Short.MAX_VALUE)
         );
         J_graficaLayout.setVerticalGroup(
             J_graficaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 314, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(231, 231, 231)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(J_grafica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE))))
-                .addContainerGap(105, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
-                .addComponent(J_grafica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
+        add(J_grafica, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, 490, 300));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        Decoration1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Decorations.png"))); // NOI18N
+        add(Decoration1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 250, -1, -1));
+
+        Decoration2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/decoration5.png"))); // NOI18N
+        Decoration2.setText("jLabel2");
+        add(Decoration2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-170, -80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Decoration1;
+    private javax.swing.JLabel Decoration2;
     private javax.swing.JPanel J_grafica;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel Subtitle;
+    private javax.swing.JLabel Title;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparatorTitle;
     private javax.swing.JTable tablaPersonas;
     // End of variables declaration//GEN-END:variables
 }

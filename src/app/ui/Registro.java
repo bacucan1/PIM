@@ -35,108 +35,110 @@ public class Registro extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        bt_re = new javax.swing.JButton();
+        Tutulo_rg = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        Text_Correo = new javax.swing.JLabel();
         correo_rg = new javax.swing.JTextField();
+        Label_Correo = new javax.swing.JLabel();
+        Text_Contraseña = new javax.swing.JLabel();
         contraseña_rg = new javax.swing.JPasswordField();
-        jLabel3 = new javax.swing.JLabel();
+        Label_Contraseña = new javax.swing.JLabel();
+        bt_re = new javax.swing.JButton();
+        Label_Buttom1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        Label_Buttom = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(107, 77, 37));
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(882, 480));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Sans Serif Collection", 0, 40)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Correo");
+        Tutulo_rg.setBackground(new java.awt.Color(255, 255, 255));
+        Tutulo_rg.setFont(new java.awt.Font("Overpass", 1, 36)); // NOI18N
+        Tutulo_rg.setForeground(new java.awt.Color(68, 75, 89));
+        Tutulo_rg.setText("Registrarse");
+        add(Tutulo_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, 200, 61));
 
-        jLabel2.setFont(new java.awt.Font("Sans Serif Collection", 0, 40)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Contraseña");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(640, 863));
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bt_re.setBackground(new java.awt.Color(245, 245, 220));
-        bt_re.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
-        bt_re.setText("Registrarse");
-        bt_re.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_reActionPerformed(evt);
-            }
-        });
+        Text_Correo.setBackground(new java.awt.Color(69, 28, 0));
+        Text_Correo.setFont(new java.awt.Font("Nunito ExtraLight", 1, 18)); // NOI18N
+        Text_Correo.setForeground(new java.awt.Color(68, 75, 89));
+        Text_Correo.setText("Correo");
+        Text_Correo.setMaximumSize(new java.awt.Dimension(198, 16));
+        jPanel1.add(Text_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 60, 48));
 
-        correo_rg.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
+        correo_rg.setFont(new java.awt.Font("Overpass", 0, 18)); // NOI18N
+        correo_rg.setBorder(null);
+        correo_rg.setOpaque(false);
         correo_rg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 correo_rgActionPerformed(evt);
             }
         });
+        jPanel1.add(correo_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 280, 40));
 
-        contraseña_rg.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
+        Label_Correo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame 4.png"))); // NOI18N
+        jPanel1.add(Label_Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel3.setFont(new java.awt.Font("Sans Serif Collection", 0, 52)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(245, 245, 220));
-        jLabel3.setText("Registrarse");
+        Text_Contraseña.setBackground(new java.awt.Color(69, 28, 0));
+        Text_Contraseña.setFont(new java.awt.Font("Nunito ExtraLight", 1, 18)); // NOI18N
+        Text_Contraseña.setForeground(new java.awt.Color(68, 75, 89));
+        Text_Contraseña.setText("Contraseña");
+        Text_Contraseña.setMaximumSize(new java.awt.Dimension(198, 16));
+        jPanel1.add(Text_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 110, 48));
+
+        contraseña_rg.setFont(new java.awt.Font("Overpass", 0, 18)); // NOI18N
+        contraseña_rg.setBorder(null);
+        contraseña_rg.setOpaque(false);
+        contraseña_rg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contraseña_rgActionPerformed(evt);
+            }
+        });
+        jPanel1.add(contraseña_rg, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 280, 40));
+
+        Label_Contraseña.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Frame 4.png"))); // NOI18N
+        jPanel1.add(Label_Contraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+
+        bt_re.setBackground(new java.awt.Color(245, 245, 220));
+        bt_re.setFont(new java.awt.Font("Nunito ExtraLight", 0, 18)); // NOI18N
+        bt_re.setForeground(new java.awt.Color(255, 255, 255));
+        bt_re.setText("Registrarse");
+        bt_re.setBorder(null);
+        bt_re.setContentAreaFilled(false);
+        bt_re.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_reActionPerformed(evt);
+            }
+        });
+        jPanel1.add(bt_re, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 130, 40));
+
+        Label_Buttom1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sign In.png"))); // NOI18N
+        jPanel1.add(Label_Buttom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 170, 50));
 
         jButton1.setBackground(new java.awt.Color(245, 245, 220));
-        jButton1.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Nunito ExtraLight", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Regresar");
+        jButton1.setContentAreaFilled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 343, 130, 40));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 128, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(85, 85, 85))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(contraseña_rg, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(correo_rg, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(155, 155, 155))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(284, 284, 284)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(334, 334, 334)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bt_re, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(contraseña_rg, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(107, 107, 107))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(correo_rg, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(101, 101, 101)))
-                .addComponent(bt_re, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
+        Label_Buttom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sign In.png"))); // NOI18N
+        jPanel1.add(Label_Buttom, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, -1));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, 330, 400));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Exlorer_Illustration 1.png"))); // NOI18N
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_reActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_reActionPerformed
@@ -188,15 +190,25 @@ public class Registro extends javax.swing.JPanel {
         ventana.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void contraseña_rgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseña_rgActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contraseña_rgActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Label_Buttom;
+    private javax.swing.JLabel Label_Buttom1;
+    private javax.swing.JLabel Label_Contraseña;
+    private javax.swing.JLabel Label_Correo;
+    private javax.swing.JLabel Text_Contraseña;
+    private javax.swing.JLabel Text_Correo;
+    private javax.swing.JLabel Tutulo_rg;
     private javax.swing.JButton bt_re;
     private javax.swing.JPasswordField contraseña_rg;
     private javax.swing.JTextField correo_rg;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

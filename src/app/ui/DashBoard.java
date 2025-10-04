@@ -42,6 +42,11 @@ public class DashBoard extends javax.swing.JPanel {
         bt_info_eco = new javax.swing.JButton();
         content = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+
+        setBackground(new java.awt.Color(242, 245, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         bt_info_res.setText("Resumen Principal");
         bt_info_res.addActionListener(new java.awt.event.ActionListener() {
@@ -49,77 +54,47 @@ public class DashBoard extends javax.swing.JPanel {
                 bt_info_resActionPerformed(evt);
             }
         });
+        add(bt_info_res, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 288, 233, -1));
 
-        bt_info_per.setText("Infomacion Personal");
+        bt_info_per.setText("Infomación Personal");
         bt_info_per.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_info_perActionPerformed(evt);
             }
         });
+        add(bt_info_per, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 414, 233, -1));
 
-        bt_info_eco.setText("Infomacion Economica");
+        bt_info_eco.setText("Infomación Económica");
         bt_info_eco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_info_ecoActionPerformed(evt);
             }
         });
+        add(bt_info_eco, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 351, 233, -1));
 
-        content.setBackground(new java.awt.Color(204, 204, 204));
+        content.setBackground(new java.awt.Color(255, 255, 255));
         content.setPreferredSize(new java.awt.Dimension(768, 0));
 
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 768, Short.MAX_VALUE)
+            .addGap(0, 991, Short.MAX_VALUE)
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
+
+        add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 0, 991, 720));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 48)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/img_DSH.png"))); // NOI18N
         jLabel3.setToolTipText("");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bt_info_res, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bt_info_eco, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(bt_info_per, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(content, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(bt_info_res)
-                .addGap(18, 18, 18)
-                .addComponent(bt_info_eco)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bt_info_per)
-                .addContainerGap(111, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 35, 177, 214));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 329, 233, 10));
+        add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 392, 233, 10));
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_info_resActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_info_resActionPerformed
@@ -138,7 +113,7 @@ public class DashBoard extends javax.swing.JPanel {
         ShowPanel(p3);
     }//GEN-LAST:event_bt_info_ecoActionPerformed
     private void ShowPanel(JPanel p) {
-        p.setSize(545, 488);
+        p.setSize(1003, 720);
         p.setLocation(0, 0);
         content.removeAll();
         content.add(p, BorderLayout.CENTER);
@@ -153,5 +128,7 @@ public class DashBoard extends javax.swing.JPanel {
     private javax.swing.JButton bt_info_res;
     private javax.swing.JPanel content;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }

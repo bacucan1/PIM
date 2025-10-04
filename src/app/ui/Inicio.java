@@ -3,6 +3,7 @@ package app.ui;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
+import javax.swing.*;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -21,7 +22,9 @@ public class Inicio extends javax.swing.JFrame {
 
     public Inicio() {
         initComponents();
-        panelInicioStatic = cn_inicio; // guardar referencia original
+        panelInicioStatic = cn_inicio;
+        this.setSize(1296, 759);
+        this.setLocationRelativeTo(null);// guardar referencia original
     }
 
     public static JPanel getPanelInicioStatic() {
@@ -38,79 +41,71 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         cn_inicio = new javax.swing.JPanel();
-        bt_regis = new javax.swing.JButton();
-        bt_login = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        bt_login = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        bt_regis = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 52, 89));
+        setMaximumSize(new java.awt.Dimension(1280, 720));
+        setMinimumSize(new java.awt.Dimension(1280, 720));
 
-        cn_inicio.setBackground(new java.awt.Color(245, 245, 220));
+        cn_inicio.setBackground(new java.awt.Color(255, 255, 255));
+        cn_inicio.setMaximumSize(new java.awt.Dimension(1280, 720));
+        cn_inicio.setOpaque(false);
         cn_inicio.setPreferredSize(new java.awt.Dimension(656, 441));
+        cn_inicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setBackground(new java.awt.Color(107, 77, 37));
+        jLabel3.setFont(new java.awt.Font("Overpass", 1, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(68, 75, 89));
+        jLabel3.setText("Bienvenido a PIM");
+        cn_inicio.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 160, -1, 73));
+
+        bt_login.setBackground(new java.awt.Color(47, 33, 0));
+        bt_login.setFont(new java.awt.Font("Nunito ExtraLight", 1, 36)); // NOI18N
+        bt_login.setForeground(new java.awt.Color(255, 255, 255));
+        bt_login.setText("Iniciar sesión");
+        bt_login.setBorder(null);
+        bt_login.setBorderPainted(false);
+        bt_login.setContentAreaFilled(false);
+        bt_login.setOpaque(false);
+        bt_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_loginActionPerformed(evt);
+            }
+        });
+        cn_inicio.add(bt_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 460, 340, 60));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sign In_in.png"))); // NOI18N
+        cn_inicio.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 460, 400, 70));
 
         bt_regis.setBackground(new java.awt.Color(107, 77, 37));
-        bt_regis.setFont(new java.awt.Font("Sans Serif Collection", 0, 40)); // NOI18N
+        bt_regis.setFont(new java.awt.Font("Nunito ExtraLight", 0, 36)); // NOI18N
+        bt_regis.setForeground(new java.awt.Color(255, 255, 255));
         bt_regis.setText("Registrarse");
+        bt_regis.setBorder(null);
+        bt_regis.setContentAreaFilled(false);
         bt_regis.setMaximumSize(new java.awt.Dimension(244, 314));
+        bt_regis.setOpaque(false);
         bt_regis.setPreferredSize(new java.awt.Dimension(244, 300));
         bt_regis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_regisActionPerformed(evt);
             }
         });
+        cn_inicio.add(bt_regis, new org.netbeans.lib.awtextra.AbsoluteConstraints(472, 550, 340, 60));
 
-        bt_login.setBackground(new java.awt.Color(47, 33, 0));
-        bt_login.setFont(new java.awt.Font("Sans Serif Collection", 0, 40)); // NOI18N
-        bt_login.setForeground(new java.awt.Color(255, 255, 255));
-        bt_login.setText("Iniciar sesion");
-        bt_login.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_loginActionPerformed(evt);
-            }
-        });
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sign In_in.png"))); // NOI18N
+        cn_inicio.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 550, 400, 70));
 
-        jLabel3.setBackground(new java.awt.Color(107, 77, 37));
-        jLabel3.setFont(new java.awt.Font("Sans Serif Collection", 0, 80)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(107, 77, 37));
-        jLabel3.setText("Bienvenido a PIM");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Cover.png"))); // NOI18N
+        cn_inicio.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
 
-        javax.swing.GroupLayout cn_inicioLayout = new javax.swing.GroupLayout(cn_inicio);
-        cn_inicio.setLayout(cn_inicioLayout);
-        cn_inicioLayout.setHorizontalGroup(
-            cn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cn_inicioLayout.createSequentialGroup()
-                .addContainerGap(127, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(99, 99, 99))
-            .addGroup(cn_inicioLayout.createSequentialGroup()
-                .addGap(283, 283, 283)
-                .addGroup(cn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(bt_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        cn_inicioLayout.setVerticalGroup(
-            cn_inicioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cn_inicioLayout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(54, 54, 54)
-                .addComponent(bt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(bt_regis, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cn_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cn_inicio, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
-        );
+        getContentPane().add(cn_inicio, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,9 +120,10 @@ public class Inicio extends javax.swing.JFrame {
         ShowPanel(p2);
     }//GEN-LAST:event_bt_loginActionPerformed
     void ShowPanel(JPanel p) {
-        p.setSize(800, 480);
+        p.setSize(1280, 720);
         p.setLocation(0, 0);
         cn_inicio.removeAll();
+        cn_inicio.setLayout(new BorderLayout());
         cn_inicio.add(p, BorderLayout.CENTER);
         cn_inicio.revalidate();
         cn_inicio.repaint();
@@ -174,6 +170,9 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton bt_login;
     private javax.swing.JButton bt_regis;
     private javax.swing.JPanel cn_inicio;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     // End of variables declaration//GEN-END:variables
 }

@@ -26,21 +26,32 @@ public class Pg_info_per extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        Title = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txf_documento = new javax.swing.JTextField();
+        Subtext_nom = new javax.swing.JLabel();
         txf_nombre = new javax.swing.JTextField();
-        txf_edad = new javax.swing.JTextField();
-        txf_fecha_na = new javax.swing.JTextField();
-        txf_nacional = new javax.swing.JTextField();
-        bt_guardar = new javax.swing.JButton();
+        Label_nom = new javax.swing.JLabel();
+        Subtext_Tdoc = new javax.swing.JLabel();
         tipo_doc = new javax.swing.JComboBox<>();
+        Label_Tdoc = new javax.swing.JLabel();
+        Subtext_doc = new javax.swing.JLabel();
+        txf_documento = new javax.swing.JTextField();
+        Label_doc = new javax.swing.JLabel();
+        Subtext_nac = new javax.swing.JLabel();
+        txf_fecha_na = new javax.swing.JTextField();
+        Label_nac = new javax.swing.JLabel();
+        Subtext_edad = new javax.swing.JLabel();
+        txf_edad = new javax.swing.JTextField();
+        Label_edad = new javax.swing.JLabel();
+        Subtext_nacionalidad = new javax.swing.JLabel();
+        txf_nacional = new javax.swing.JTextField();
+        Label_nacional = new javax.swing.JLabel();
+        bt_guardar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        Subtitle = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        Decoration1 = new javax.swing.JLabel();
+        Decoration2 = new javax.swing.JLabel();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -49,168 +60,237 @@ public class Pg_info_per extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jList1);
 
-        jPanel1.setBackground(new java.awt.Color(107, 52, 45));
+        setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(991, 720));
+        setPreferredSize(new java.awt.Dimension(991, 720));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Sans Serif Collection", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Informacion General");
+        Title.setFont(new java.awt.Font("Overpass", 1, 48)); // NOI18N
+        Title.setForeground(new java.awt.Color(68, 75, 89));
+        Title.setText("Información General");
+        add(Title, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Sans Serif Collection", 0, 17)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Identificación básica");
+        jPanel1.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Nombre completo");
+        Subtext_nom.setFont(new java.awt.Font("Nunito ExtraLight", 1, 14)); // NOI18N
+        Subtext_nom.setForeground(new java.awt.Color(68, 75, 89));
+        Subtext_nom.setText("Nombre completo");
+        jPanel1.add(Subtext_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 166, 20));
 
-        jLabel5.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Fecha de nacimiento");
+        txf_nombre.setBackground(new java.awt.Color(250, 250, 250));
+        txf_nombre.setFont(new java.awt.Font("Overpass", 1, 14)); // NOI18N
+        txf_nombre.setBorder(null);
+        txf_nombre.setOpaque(false);
+        txf_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txf_nombreActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txf_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 230, 40));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel6.setText("Tipo y numero de documento");
+        Label_nom.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Label.png"))); // NOI18N
+        jPanel1.add(Label_nom, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Edad");
+        Subtext_Tdoc.setFont(new java.awt.Font("Nunito ExtraLight", 0, 14)); // NOI18N
+        Subtext_Tdoc.setForeground(new java.awt.Color(68, 75, 89));
+        Subtext_Tdoc.setText("Tipo de documento");
+        jPanel1.add(Subtext_Tdoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 198, -1));
 
-        jLabel8.setFont(new java.awt.Font("Sans Serif Collection", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Nacionalidad");
+        tipo_doc.setBackground(new java.awt.Color(250, 250, 250));
+        tipo_doc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CC", "TI", "CE", "PP" }));
+        tipo_doc.setBorder(null);
+        tipo_doc.setOpaque(false);
+        tipo_doc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tipo_docActionPerformed(evt);
+            }
+        });
+        jPanel1.add(tipo_doc, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 230, 20));
 
+        Label_Tdoc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Label.png"))); // NOI18N
+        jPanel1.add(Label_Tdoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+
+        Subtext_doc.setFont(new java.awt.Font("Nunito ExtraLight", 0, 14)); // NOI18N
+        Subtext_doc.setForeground(new java.awt.Color(68, 75, 89));
+        Subtext_doc.setText("Número de documento");
+        jPanel1.add(Subtext_doc, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 198, -1));
+
+        txf_documento.setBackground(new java.awt.Color(250, 250, 250));
+        txf_documento.setFont(new java.awt.Font("Overpass", 1, 14)); // NOI18N
+        txf_documento.setBorder(null);
+        txf_documento.setOpaque(false);
         txf_documento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txf_documentoActionPerformed(evt);
             }
         });
+        jPanel1.add(txf_documento, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 230, 40));
 
+        Label_doc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Label.png"))); // NOI18N
+        jPanel1.add(Label_doc, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
+
+        Subtext_nac.setFont(new java.awt.Font("Nunito ExtraLight", 0, 14)); // NOI18N
+        Subtext_nac.setForeground(new java.awt.Color(68, 75, 89));
+        Subtext_nac.setText("Fecha de nacimiento");
+        jPanel1.add(Subtext_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, 139, -1));
+
+        txf_fecha_na.setBackground(new java.awt.Color(250, 250, 250));
+        txf_fecha_na.setFont(new java.awt.Font("Overpass", 1, 14)); // NOI18N
+        txf_fecha_na.setBorder(null);
+        txf_fecha_na.setOpaque(false);
+        jPanel1.add(txf_fecha_na, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 230, 40));
+
+        Label_nac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Label.png"))); // NOI18N
+        jPanel1.add(Label_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
+
+        Subtext_edad.setFont(new java.awt.Font("Nunito ExtraLight", 0, 14)); // NOI18N
+        Subtext_edad.setForeground(new java.awt.Color(68, 75, 89));
+        Subtext_edad.setText("Edad");
+        jPanel1.add(Subtext_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 40, -1));
+
+        txf_edad.setBackground(new java.awt.Color(250, 250, 250));
+        txf_edad.setFont(new java.awt.Font("Overpass", 1, 14)); // NOI18N
+        txf_edad.setBorder(null);
+        txf_edad.setOpaque(false);
+        txf_edad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txf_edadActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txf_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 230, 40));
+
+        Label_edad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Label.png"))); // NOI18N
+        jPanel1.add(Label_edad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
+
+        Subtext_nacionalidad.setFont(new java.awt.Font("Nunito ExtraLight", 0, 14)); // NOI18N
+        Subtext_nacionalidad.setForeground(new java.awt.Color(68, 75, 89));
+        Subtext_nacionalidad.setText("Nacionalidad");
+        jPanel1.add(Subtext_nacionalidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 90, -1));
+
+        txf_nacional.setBackground(new java.awt.Color(250, 250, 250));
+        txf_nacional.setFont(new java.awt.Font("Overpass", 1, 14)); // NOI18N
+        txf_nacional.setBorder(null);
+        txf_nacional.setOpaque(false);
+        jPanel1.add(txf_nacional, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 230, 40));
+
+        Label_nacional.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Label.png"))); // NOI18N
+        Label_nacional.setOpaque(false);
+        jPanel1.add(Label_nacional, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
+
+        bt_guardar.setFont(new java.awt.Font("Overpass", 1, 18)); // NOI18N
+        bt_guardar.setForeground(new java.awt.Color(255, 255, 255));
         bt_guardar.setText("Guardar");
+        bt_guardar.setBorder(null);
+        bt_guardar.setContentAreaFilled(false);
         bt_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_guardarActionPerformed(evt);
             }
         });
+        jPanel1.add(bt_guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 453, 130, 40));
 
-        tipo_doc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CC", "TI", "CE", "PP" }));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Sign In.png"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 450, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txf_edad, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txf_fecha_na, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(tipo_doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txf_documento, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
-                            .addComponent(txf_nombre, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txf_nacional))
-                        .addGap(0, 94, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(30, 30, 30))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(149, 149, 149))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(233, 233, 233)
-                .addComponent(bt_guardar)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txf_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txf_documento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tipo_doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txf_fecha_na, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txf_edad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txf_nacional, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(bt_guardar)
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 160, 360, 520));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        Subtitle.setFont(new java.awt.Font("Overpass", 0, 24)); // NOI18N
+        Subtitle.setForeground(new java.awt.Color(68, 75, 89));
+        Subtitle.setText("Identificación básica");
+        add(Subtitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 900, -1));
+
+        Decoration1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Decorations.png"))); // NOI18N
+        add(Decoration1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, -1, -1));
+
+        Decoration2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/decoration2.png"))); // NOI18N
+        add(Decoration2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 180, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void bt_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_guardarActionPerformed
 
-        // 1. Crear objeto con los datos del formulario
-        Datos_per persona = new Datos_per();
-        persona.setNombreCompleto(txf_nombre.getText());
-        persona.setTipoDocumento(tipo_doc.getSelectedItem().toString());
-        persona.setNumeroDocumento(txf_documento.getText());
-        persona.setFechaNacimiento(txf_fecha_na.getText());
-
-        try {
-            persona.setEdad(Integer.parseInt(txf_edad.getText()));
-        } catch (NumberFormatException e) {
-            persona.setEdad(0); // Valor por defecto
+        //1. Validar campos vacíos
+        
+        if (txf_nombre.getText().trim().isEmpty() ||
+        txf_fecha_na.getText().trim().isEmpty() ||
+        txf_documento.getText().trim().isEmpty() ||
+        txf_edad.getText().trim().isEmpty() ||
+        txf_nacional.getText().trim().isEmpty()) {
+        
+        javax.swing.JOptionPane.showMessageDialog(this,
+            "Por favor complete todos los campos antes de continuar.",
+            "Campos incompletos",
+        javax.swing.JOptionPane.WARNING_MESSAGE);
+        return;
         }
+        
+        //2. Validar que documento y edad sean numéricos
+        
+        int edad = 0;
+        try {
+            edad = Integer.parseInt(txf_edad.getText().trim());
+            if (edad <= 0 || edad > 120) {
+                javax.swing.JOptionPane.showMessageDialog(this,
+                    "Ingrese una edad válida (entre 1 y 120 años).",
+                    "Edad inválida",
+                    javax.swing.JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "La edad debe ser un número válido.",
+                "Dato inválido",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        try {
+            Long.parseLong(txf_documento.getText().trim());
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "El número de documento debe contener solo dígitos.",
+                "Documento inválido",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //3. Validar formato de fecha (AAAA-MM-DD)
+        
+        if (!txf_fecha_na.getText().matches("\\d{4}-\\d{2}-\\d{2}")) {
+            javax.swing.JOptionPane.showMessageDialog(this,
+                "La fecha debe tener el formato AAAA-MM-DD (por ejemplo: 2000-05-23).",
+                "Formato incorrecto",
+                javax.swing.JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //4. Crear objeto con los datos del formulario
+        
+        Datos_per persona = new Datos_per();
+        persona.setNombreCompleto(txf_nombre.getText().trim());
+        persona.setTipoDocumento(tipo_doc.getSelectedItem().toString());
+        persona.setNumeroDocumento(txf_documento.getText().trim());
+        persona.setFechaNacimiento(txf_fecha_na.getText().trim());
+        persona.setEdad(edad);
+        persona.setNacionalidad(txf_nacional.getText().trim());
 
-        persona.setNacionalidad(txf_nacional.getText());
 
-        // 2. Convertir a JSON
+        //5. Convertir a JSON
         Gson gson = new Gson();
         String jsonPersona = gson.toJson(persona);
 
         System.out.println("Persona en JSON:");
         System.out.println(jsonPersona);
 
-        // 3. Verificar sesión
+        //6. Verificar sesión
         String token = UserSession.getInstance().getToken();
         if (token == null) {
             javax.swing.JOptionPane.showMessageDialog(this, "No hay sesión activa.");
             return;
         }
 
-        // 4. Enviar datos con mónada Try (ApiClient)
+        //7. Enviar datos con mónada Try (ApiClient)
         ApiClient.enviarDatos(ApiConfig.PERSONAS_URL + "info_personal", jsonPersona, token)
                 .onSuccess(status -> {
                     System.out.println("Código de respuesta: " + status);
@@ -221,7 +301,7 @@ public class Pg_info_per extends javax.swing.JPanel {
                     javax.swing.JOptionPane.showMessageDialog(this, "Error al enviar: " + e.getMessage());
                 });
 
-        // 5. Limpiar campos después de guardar
+        //8. Limpiar campos después de guardar
         txf_documento.setText("");
         txf_edad.setText("");
         txf_fecha_na.setText("");
@@ -234,19 +314,42 @@ public class Pg_info_per extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txf_documentoActionPerformed
 
+    private void txf_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txf_nombreActionPerformed
+
+    private void tipo_docActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipo_docActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tipo_docActionPerformed
+
+    private void txf_edadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txf_edadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txf_edadActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Decoration1;
+    private javax.swing.JLabel Decoration2;
+    private javax.swing.JLabel Label_Tdoc;
+    private javax.swing.JLabel Label_doc;
+    private javax.swing.JLabel Label_edad;
+    private javax.swing.JLabel Label_nac;
+    private javax.swing.JLabel Label_nacional;
+    private javax.swing.JLabel Label_nom;
+    private javax.swing.JLabel Subtext_Tdoc;
+    private javax.swing.JLabel Subtext_doc;
+    private javax.swing.JLabel Subtext_edad;
+    private javax.swing.JLabel Subtext_nac;
+    private javax.swing.JLabel Subtext_nacionalidad;
+    private javax.swing.JLabel Subtext_nom;
+    private javax.swing.JLabel Subtitle;
+    private javax.swing.JLabel Title;
     private javax.swing.JButton bt_guardar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JComboBox<String> tipo_doc;
     private javax.swing.JTextField txf_documento;
     private javax.swing.JTextField txf_edad;
