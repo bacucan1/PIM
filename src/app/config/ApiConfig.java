@@ -11,7 +11,7 @@ package app.config;
  */
 public class ApiConfig {
     // URL base de la API
-    public static final String BASE_URL = "http://127.0.0.1:5000/";
+    public static final String BASE_URL = "http://127.0.0.1:8080/";
     public static final String PERSONAS_URL = BASE_URL;
 }
 

@@ -1,20 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package app.datos;
 
-import app.config.ApiConfig;
-import app.session.UserSession;
-import com.google.gson.Gson;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 public class Datos_eco {
-
-    private String fuenteIngresos;
+    private String fuenteIngreso; // Eliminar fuenteIngresos duplicado
     private double ingreso;
     private double arriendoHipo;
     private double services;
@@ -23,30 +10,17 @@ public class Datos_eco {
     private double otros;
     private double totalGastos;
     private double disponible;
-    private String fuenteIngreso;
 
-    // Constructor vacío
     public Datos_eco() {
     }
 
-    // Constructor con parámetros
-    public Datos_eco(String fuenteIngresos, double ingreso, double arriendoHipo,
-            double services, double alimentacion, double transporte) {
-        this.fuenteIngresos = fuenteIngresos;
-        this.ingreso = ingreso;
-        this.arriendoHipo = arriendoHipo;
-        this.services = services;
-        this.alimentacion = alimentacion;
-        this.transporte = transporte;
-    }
-
     // Getters y Setters
-    public String getFuenteIngresos() {
-        return fuenteIngresos;
+    public String getFuenteIngreso() {
+        return fuenteIngreso;
     }
 
-    public void setFuenteIngresos(String fuenteIngresos) {
-        this.fuenteIngresos = fuenteIngresos;
+    public void setFuenteIngreso(String fuenteIngreso) {
+        this.fuenteIngreso = fuenteIngreso;
     }
 
     public double getIngreso() {
@@ -97,31 +71,24 @@ public class Datos_eco {
         this.otros = otros;
     }
 
-    public void calcularTotales() {
-        this.totalGastos = arriendoHipo + services + alimentacion + transporte + otros;
-        this.disponible = ingreso - totalGastos;
-    }
-
-    // Métodos corregidos
     public double getTotalGastos() {
         return totalGastos;
     }
 
+    public void setTotalGastos(double totalGastos) {
+        this.totalGastos = totalGastos;
+    }
+
     public double getDisponible() {
         return disponible;
-    }
-// Getters y Setters
-
-    public String getFuenteIngreso() {
-        return fuenteIngreso;
-    }
-
-    public void setFuenteIngreso(String fuenteIngreso) {
-        this.fuenteIngreso = fuenteIngreso;
     }
 
     public void setDisponible(double disponible) {
         this.disponible = disponible;
     }
 
+    public void calcularTotales() {
+        this.totalGastos = arriendoHipo + services + alimentacion + transporte + otros;
+        this.disponible = ingreso - totalGastos;
+    }
 }

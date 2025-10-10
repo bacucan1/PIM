@@ -79,66 +79,93 @@ public class Pg_info_res extends javax.swing.JPanel {
         try {
             String token = UserSession.getInstance().getToken();
             if (token == null || token.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "No hay sesión activa. Por favor, inicie sesión.");
-                return null;
+                System.out.println("⚠️ No hay token, usando default");
+                token = ""; // La API acepta sin token usando default@example.com
             }
 
-            // === VERIFICAR SI EXISTE INFORMACIÓN FINANCIERA ===
-            URL checkUrl = new URL(ApiConfig.PERSONAS_URL + "obtener_info_financiera");
-            HttpURLConnection checkConn = (HttpURLConnection) checkUrl.openConnection();
-            checkConn.setRequestMethod("GET");
-            checkConn.setRequestProperty("Accept", "application/json");
-            checkConn.setRequestProperty("x-access-token", token);
+            // === HACER GET A LA API ===
+            URL url = new URL(ApiConfig.PERSONAS_URL + "obtener_info_financiera");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+            if (!token.isEmpty()) {
+                conn.setRequestProperty("x-access-token", token);
+            }
 
-            int checkStatus = checkConn.getResponseCode();
-            BufferedReader checkBr = (checkStatus >= 200 && checkStatus < 300)
-                    ? new BufferedReader(new InputStreamReader(checkConn.getInputStream(), "utf-8"))
-                    : new BufferedReader(new InputStreamReader(checkConn.getErrorStream(), "utf-8"));
+            int status = conn.getResponseCode();
+            BufferedReader br = (status >= 200 && status < 300)
+                    ? new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"))
+                    : new BufferedReader(new InputStreamReader(conn.getErrorStream(), "utf-8"));
 
-            StringBuilder checkResponse = new StringBuilder();
+            StringBuilder response = new StringBuilder();
             String line;
-            while ((line = checkBr.readLine()) != null) {
-                checkResponse.append(line.trim());
+            while ((line = br.readLine()) != null) {
+                response.append(line.trim());
             }
-            checkConn.disconnect();
+            conn.disconnect();
 
-            String jsonResponse = checkResponse.toString();
+            String jsonResponse = response.toString();
             System.out.println("📥 Respuesta API (info financiera): " + jsonResponse);
 
-            // Si no hay información registrada, no continuar
-            if (jsonResponse.contains("\"info_financiera\":null")
-                    || jsonResponse.contains("No se encontró información financiera")
-                    || jsonResponse.trim().equals("{}")) {
-
-                System.out.println("⚠️ No hay información económica registrada para este usuario. Se omite el GET.");
-                return null; // <- evita error, no muestra mensaje
-            }
-
-            // === SI HAY INFORMACIÓN, PROCESAR NORMALMENTE ===
+            // === PARSEAR JSON DIRECTAMENTE (nuevo formato) ===
             Gson gson = new Gson();
-            RespuestaEconomica respuesta = gson.fromJson(jsonResponse, RespuestaEconomica.class);
+            java.util.Map<String, Object> datos = gson.fromJson(jsonResponse, java.util.Map.class);
 
-            if (respuesta == null || respuesta.getInfo_financiera() == null) {
-                System.out.println("⚠️ No hay datos económicos válidos.");
+            if (datos == null || datos.isEmpty()) {
+                System.out.println("⚠️ No hay datos económicos.");
                 return null;
             }
 
+            // Verificar si hay datos válidos
+            double ingreso = getDoubleValue(datos, "ingreso");
+            if (ingreso == 0.0) {
+                System.out.println("⚠️ No hay información económica registrada.");
+                return null;
+            }
+
+            // === CREAR OBJETO Datos_eco CON LOS DATOS ===
             Datos_eco eco = new Datos_eco();
-            eco.setArriendoHipo(respuesta.getInfo_financiera().getGastos().getArriendo_hipoteca());
-            eco.setServices(respuesta.getInfo_financiera().getGastos().getServicios());
-            eco.setAlimentacion(respuesta.getInfo_financiera().getGastos().getAlimentacion());
-            eco.setTransporte(respuesta.getInfo_financiera().getGastos().getTransporte());
-            eco.setOtros(respuesta.getInfo_financiera().getGastos().getOtros_gastos_fijos());
-            eco.setDisponible(respuesta.getInfo_financiera().getTotales().getDisponible());
-            eco.setIngreso(respuesta.getInfo_financiera().getIngreso_mensual());
+            eco.setIngreso(ingreso);
+            eco.setArriendoHipo(getDoubleValue(datos, "arriendoHipo"));
+            eco.setServices(getDoubleValue(datos, "services"));
+            eco.setAlimentacion(getDoubleValue(datos, "alimentacion"));
+            eco.setTransporte(getDoubleValue(datos, "transporte"));
+            eco.setOtros(getDoubleValue(datos, "otros"));
+            eco.setDisponible(getDoubleValue(datos, "disponible"));
+            eco.setFuenteIngreso(datos.getOrDefault("fuenteIngreso", "No especificado").toString());
+
+            // Calcular totales por si acaso
             eco.calcularTotales();
+
+            System.out.println("✅ Datos económicos cargados:");
+            System.out.println("   Ingreso: " + eco.getIngreso());
+            System.out.println("   Arriendo: " + eco.getArriendoHipo());
+            System.out.println("   Servicios: " + eco.getServices());
+            System.out.println("   Alimentación: " + eco.getAlimentacion());
+            System.out.println("   Transporte: " + eco.getTransporte());
+            System.out.println("   Otros: " + eco.getOtros());
+            System.out.println("   Disponible: " + eco.getDisponible());
 
             return eco;
 
         } catch (Exception e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error al obtener datos económicos: " + e.getMessage());
+            System.err.println("❌ Error al obtener datos económicos: " + e.getMessage());
             return null;
+        }
+    }
+
+    // Método auxiliar para extraer valores double del Map
+    private double getDoubleValue(java.util.Map<String, Object> map, String key) {
+        Object value = map.get(key);
+        if (value == null) return 0.0;
+        if (value instanceof Number) {
+            return ((Number) value).doubleValue();
+        }
+        try {
+            return Double.parseDouble(value.toString());
+        } catch (Exception e) {
+            return 0.0;
         }
     }
 
