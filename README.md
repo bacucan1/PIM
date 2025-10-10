@@ -59,7 +59,8 @@ Sistema de Gestión de Información Personal desarrollado bajo una arquitectura 
 
 --- 
 
-## � Estructura del Proyecto
+## Estructura del Proyecto
+
 
 ```plaintext
 PIM/
