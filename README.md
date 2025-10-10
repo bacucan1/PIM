@@ -1,10 +1,10 @@
-# � PIM (Personal Information Manager)
+# 📊 PIM (Personal Information Manager)
 
-![Java Version](https://img.shields.io/badge/Java-21-blue)
-![JFreeChart](https://img.shields.io/badge/JFreeChart-1.5.6-green)
-![Gson](https://img.shields.io/badge/Gson-2.10.1-orange)
-![JUnit](https://img.shields.io/badge/JUnit-4.13.2-red)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+[![Java Version](https://img.shields.io/badge/Java-21-blue)](https://www.oracle.com/java/technologies/downloads/#java21)
+[![JFreeChart](https://img.shields.io/badge/JFreeChart-1.5.6-green)](https://www.jfree.org/jfreechart/)
+[![Gson](https://img.shields.io/badge/Gson-2.10.1-orange)](https://github.com/google/gson)
+[![JUnit](https://img.shields.io/badge/JUnit-4.13.2-red)](https://junit.org/junit4/)
+[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
 
 Sistema de Gestión de Información Personal desarrollado bajo una arquitectura Cliente-Servidor, implementando una robusta gestión de datos financieros y personales. 
 
@@ -61,7 +61,7 @@ Sistema de Gestión de Información Personal desarrollado bajo una arquitectura 
 
 ## � Estructura del Proyecto
 
-\`\`\`
+```plaintext
 PIM/
 ├── src/                       # Código fuente Java
 │   ├── app/
@@ -77,7 +77,7 @@ PIM/
 │   │   └── test/
 │   └── pom.xml
 └── docs/                    # Documentación 
-``` 
+```
 
 --- 
 
@@ -193,7 +193,7 @@ PIM/
 - **Tests de UI**: Verificación de experiencia de usuario
 - **Tests de API**: Validación de endpoints y respuestas
 
-## � Equipo de Desarrollo
+## 👥 Equipo de Desarrollo
 
 **Universidad Libre - Ingeniería de Sistemas**
 
