@@ -1,4 +1,4 @@
-# � PIM (Personal Information Manager)
+# PIM (Personal Information Manager)
 
 ![Java Version](https://img.shields.io/badge/Java-21-blue)
 ![JFreeChart](https://img.shields.io/badge/JFreeChart-1.5.6-green)
@@ -59,9 +59,9 @@ Sistema de Gestión de Información Personal desarrollado bajo una arquitectura 
 
 --- 
 
-## � Estructura del Proyecto
+## Estructura del Proyecto
 
-\`\`\`
+
 PIM/
 ├── src/                       # Código fuente Java
 │   ├── app/
@@ -77,7 +77,6 @@ PIM/
 │   │   └── test/
 │   └── pom.xml
 └── docs/                    # Documentación 
-``` 
 
 --- 
 
