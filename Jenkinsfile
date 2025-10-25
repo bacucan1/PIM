@@ -89,12 +89,13 @@ pipeline {
                             mvn sonar:sonar ^
                             -Dsonar.projectKey=%API_PROJECT_KEY% ^
                             -Dsonar.host.url=%SONAR_HOST_URL% ^
-                            -Dsonar.login=%SONAR_TOKEN%
+                            -Dsonar.token=%SONAR_TOKEN%
                         """
                     }
                 }
             }
         }
+
         
         stage('⏳ Quality Gate') {
             steps {
