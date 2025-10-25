@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.api.ApiApplicationTest" time="6.495" tests="17" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\usuaario\OneDrive\Escritorio\PIM\PIM\Api\target\test-classes;C:\Users\usuaario\OneDrive\Escritorio\PIM\PIM\Api\target\classes;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.0\spring-boot-starter-web-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.0\spring-boot-starter-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot\3.2.0\spring-boot-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.0\spring-boot-autoconfigure-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.0\spring-boot-starter-logging-3.2.0.jar;C:\Users\usuaario\.m2\repository\ch\qos\logback\logback-classic\1.4.11\logback-classic-1.4.11.jar;C:\Users\usuaario\.m2\repository\ch\qos\logback\logback-core\1.4.11\logback-core-1.4.11.jar;C:\Users\usuaario\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\usuaario\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\usuaario\.m2\repository\org\slf4j\jul-to-slf4j\2.0.9\jul-to-slf4j-2.0.9.jar;C:\Users\usuaario\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\usuaario\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.0\spring-boot-starter-json-3.2.0.jar;C:\Users\usuaario\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.3\jackson-datatype-jdk8-2.15.3.jar;C:\Users\usuaario\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.3\jackson-datatype-jsr310-2.15.3.jar;C:\Users\usuaario\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.3\jackson-module-parameter-names-2.15.3.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.0\spring-boot-starter-tomcat-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.16\tomcat-embed-core-10.1.16.jar;C:\Users\usuaario\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.16\tomcat-embed-el-10.1.16.jar;C:\Users\usuaario\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.16\tomcat-embed-websocket-10.1.16.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-web\6.1.1\spring-web-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-beans\6.1.1\spring-beans-6.1.1.jar;C:\Users\usuaario\.m2\repository\io\micrometer\micrometer-observation\1.12.0\micrometer-observation-1.12.0.jar;C:\Users\usuaario\.m2\repository\io\micrometer\micrometer-commons\1.12.0\micrometer-commons-1.12.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-webmvc\6.1.1\spring-webmvc-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-context\6.1.1\spring-context-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-expression\6.1.1\spring-expression-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.2.0\spring-boot-starter-security-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-aop\6.1.1\spring-aop-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\security\spring-security-config\6.2.0\spring-security-config-6.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\security\spring-security-web\6.2.0\spring-security-web-6.2.0.jar;C:\Users\usuaario\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\usuaario\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\usuaario\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\usuaario\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;C:\Users\usuaario\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.3\jackson-annotations-2.15.3.jar;C:\Users\usuaario\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.3\jackson-core-2.15.3.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.0\spring-boot-starter-test-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-test\3.2.0\spring-boot-test-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.0\spring-boot-test-autoconfigure-3.2.0.jar;C:\Users\usuaario\.m2\repository\com\jayway\jsonpath\json-path\2.8.0\json-path-2.8.0.jar;C:\Users\usuaario\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;C:\Users\usuaario\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.1\jakarta.xml.bind-api-4.0.1.jar;C:\Users\usuaario\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.2\jakarta.activation-api-2.1.2.jar;C:\Users\usuaario\.m2\repository\net\minidev\json-smart\2.5.0\json-smart-2.5.0.jar;C:\Users\usuaario\.m2\repository\net\minidev\accessors-smart\2.5.0\accessors-smart-2.5.0.jar;C:\Users\usuaario\.m2\repository\org\ow2\asm\asm\9.3\asm-9.3.jar;C:\Users\usuaario\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\usuaario\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\usuaario\.m2\repository\org\awaitility\awaitility\4.2.0\awaitility-4.2.0.jar;C:\Users\usuaario\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\usuaario\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\usuaario\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\usuaario\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\usuaario\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\usuaario\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\usuaario\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\usuaario\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\usuaario\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\usuaario\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\usuaario\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\usuaario\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\usuaario\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\usuaario\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\usuaario\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-core\6.1.1\spring-core-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-jcl\6.1.1\spring-jcl-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-test\6.1.1\spring-test-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\security\spring-security-test\6.2.0\spring-security-test-6.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\security\spring-security-core\6.2.0\spring-security-core-6.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\security\spring-security-crypto\6.2.0\spring-security-crypto-6.2.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="catalina.useNaming" value="false"/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="America/Bogota"/>
+    <property name="user.country.format" value="US"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="ES"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17\bin"/>
+    <property name="sun.java.command" value="C:\Users\usuaario\AppData\Local\Temp\surefire13423918607216474466\surefirebooter-20251025155701812_3.jar C:\Users\usuaario\AppData\Local\Temp\surefire13423918607216474466 2025-10-25T15-57-01_430-jvmRun1 surefire-20251025155701812_1tmp surefire_0-20251025155701812_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\usuaario\OneDrive\Escritorio\PIM\PIM\Api\target\test-classes;C:\Users\usuaario\OneDrive\Escritorio\PIM\PIM\Api\target\classes;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.2.0\spring-boot-starter-web-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter\3.2.0\spring-boot-starter-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot\3.2.0\spring-boot-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.2.0\spring-boot-autoconfigure-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.2.0\spring-boot-starter-logging-3.2.0.jar;C:\Users\usuaario\.m2\repository\ch\qos\logback\logback-classic\1.4.11\logback-classic-1.4.11.jar;C:\Users\usuaario\.m2\repository\ch\qos\logback\logback-core\1.4.11\logback-core-1.4.11.jar;C:\Users\usuaario\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.21.1\log4j-to-slf4j-2.21.1.jar;C:\Users\usuaario\.m2\repository\org\apache\logging\log4j\log4j-api\2.21.1\log4j-api-2.21.1.jar;C:\Users\usuaario\.m2\repository\org\slf4j\jul-to-slf4j\2.0.9\jul-to-slf4j-2.0.9.jar;C:\Users\usuaario\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\usuaario\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.2.0\spring-boot-starter-json-3.2.0.jar;C:\Users\usuaario\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.15.3\jackson-datatype-jdk8-2.15.3.jar;C:\Users\usuaario\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.15.3\jackson-datatype-jsr310-2.15.3.jar;C:\Users\usuaario\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.15.3\jackson-module-parameter-names-2.15.3.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.2.0\spring-boot-starter-tomcat-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.16\tomcat-embed-core-10.1.16.jar;C:\Users\usuaario\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.16\tomcat-embed-el-10.1.16.jar;C:\Users\usuaario\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.16\tomcat-embed-websocket-10.1.16.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-web\6.1.1\spring-web-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-beans\6.1.1\spring-beans-6.1.1.jar;C:\Users\usuaario\.m2\repository\io\micrometer\micrometer-observation\1.12.0\micrometer-observation-1.12.0.jar;C:\Users\usuaario\.m2\repository\io\micrometer\micrometer-commons\1.12.0\micrometer-commons-1.12.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-webmvc\6.1.1\spring-webmvc-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-context\6.1.1\spring-context-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-expression\6.1.1\spring-expression-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.2.0\spring-boot-starter-security-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-aop\6.1.1\spring-aop-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\security\spring-security-config\6.2.0\spring-security-config-6.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\security\spring-security-web\6.2.0\spring-security-web-6.2.0.jar;C:\Users\usuaario\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\usuaario\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\usuaario\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;C:\Users\usuaario\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.15.3\jackson-databind-2.15.3.jar;C:\Users\usuaario\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.15.3\jackson-annotations-2.15.3.jar;C:\Users\usuaario\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.15.3\jackson-core-2.15.3.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.2.0\spring-boot-starter-test-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-test\3.2.0\spring-boot-test-3.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.2.0\spring-boot-test-autoconfigure-3.2.0.jar;C:\Users\usuaario\.m2\repository\com\jayway\jsonpath\json-path\2.8.0\json-path-2.8.0.jar;C:\Users\usuaario\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;C:\Users\usuaario\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.1\jakarta.xml.bind-api-4.0.1.jar;C:\Users\usuaario\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.2\jakarta.activation-api-2.1.2.jar;C:\Users\usuaario\.m2\repository\net\minidev\json-smart\2.5.0\json-smart-2.5.0.jar;C:\Users\usuaario\.m2\repository\net\minidev\accessors-smart\2.5.0\accessors-smart-2.5.0.jar;C:\Users\usuaario\.m2\repository\org\ow2\asm\asm\9.3\asm-9.3.jar;C:\Users\usuaario\.m2\repository\org\assertj\assertj-core\3.24.2\assertj-core-3.24.2.jar;C:\Users\usuaario\.m2\repository\net\bytebuddy\byte-buddy\1.14.10\byte-buddy-1.14.10.jar;C:\Users\usuaario\.m2\repository\org\awaitility\awaitility\4.2.0\awaitility-4.2.0.jar;C:\Users\usuaario\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\usuaario\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\usuaario\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\usuaario\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\usuaario\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\usuaario\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\usuaario\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\usuaario\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\usuaario\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\usuaario\.m2\repository\org\mockito\mockito-core\5.7.0\mockito-core-5.7.0.jar;C:\Users\usuaario\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.10\byte-buddy-agent-1.14.10.jar;C:\Users\usuaario\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\usuaario\.m2\repository\org\mockito\mockito-junit-jupiter\5.7.0\mockito-junit-jupiter-5.7.0.jar;C:\Users\usuaario\.m2\repository\org\skyscreamer\jsonassert\1.5.1\jsonassert-1.5.1.jar;C:\Users\usuaario\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-core\6.1.1\spring-core-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-jcl\6.1.1\spring-jcl-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\spring-test\6.1.1\spring-test-6.1.1.jar;C:\Users\usuaario\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;C:\Users\usuaario\.m2\repository\org\springframework\security\spring-security-test\6.2.0\spring-security-test-6.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\security\spring-security-core\6.2.0\spring-security-core-6.2.0.jar;C:\Users\usuaario\.m2\repository\org\springframework\security\spring-security-crypto\6.2.0\spring-security-crypto-6.2.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\usuaario"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-07-16"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-17"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\usuaario\OneDrive\Escritorio\PIM\PIM\Api"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="windows-1252"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\usuaario\AppData\Local\Temp\surefire13423918607216474466\surefirebooter-20251025155701812_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.12+8-LTS-286"/>
+    <property name="user.name" value="usuaario"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\usuaario\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\usuaario\AppData\Local\Temp\"/>
+    <property name="catalina.home" value="C:\Users\usuaario\AppData\Local\Temp\tomcat.0.7877079050932682444"/>
+    <property name="java.version" value="17.0.12"/>
+    <property name="user.dir" value="C:\Users\usuaario\OneDrive\Escritorio\PIM\PIM\Api"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="21688"/>
+    <property name="user.language.format" value="en"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="CONSOLE_LOG_CHARSET" value="windows-1252"/>
+    <property name="catalina.base" value="C:\Users\usuaario\AppData\Local\Temp\tomcat.0.7877079050932682444"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-17\bin;C:\Users\usuaario\Downloads\apache-maven-3.9.11-bin\apache-maven-3.9.11\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Ruby33-x64\bin;C:\Users\usuaario\.cargo\bin;C:\Users\usuaario\AppData\Local\Microsoft\WindowsApps;C:\Users\usuaario\.cache\lm-studio\bin;C:\Users\usuaario\AppData\Roaming\npm;C:\Users\usuaario\AppData\Local\Programs\Ollama;C:\Users\usuaario\AppData\Local\Microsoft\WindowsApps;C:\Users\usuaario\AppData\Local\Programs\Microsoft VS Code\bin;c:\Users\usuaario\.vscode\extensions\ms-python.debugpy-2025.14.0-win32-x64\bundled\scripts\noConfigScripts;c:\Users\usuaario\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="17.0.12+8-LTS-286"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="testRegistroExitoso" classname="com.example.api.ApiApplicationTest" time="1.677">
+    <system-out><![CDATA[15:57:03.133 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.api.ApiApplicationTest]: ApiApplicationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:57:03.340 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.api.ApiApplication for test class com.example.api.ApiApplicationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2025-10-25T15:57:04.107-05:00  INFO 21688 --- [           main] com.example.api.ApiApplicationTest       : Starting ApiApplicationTest using Java 17.0.12 with PID 21688 (started by usuaario in C:\Users\usuaario\OneDrive\Escritorio\PIM\PIM\Api)
+2025-10-25T15:57:04.110-05:00  INFO 21688 --- [           main] com.example.api.ApiApplicationTest       : No active profile set, falling back to 1 default profile: "default"
+2025-10-25T15:57:05.820-05:00  INFO 21688 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-10-25T15:57:05.836-05:00  INFO 21688 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-25T15:57:05.836-05:00  INFO 21688 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-10-25T15:57:05.930-05:00  INFO 21688 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-25T15:57:05.932-05:00  INFO 21688 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1776 ms
+2025-10-25T15:57:06.155-05:00  WARN 21688 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ccef5fe7-d0f7-4655-8f2d-23b133b2d752
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-10-25T15:57:06.747-05:00  INFO 21688 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@11a3a45f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@69796bd0, org.springframework.security.web.context.SecurityContextHolderFilter@3a296107, org.springframework.security.web.header.HeaderWriterFilter@44bc2449, org.springframework.web.filter.CorsFilter@40df6090, org.springframework.security.web.authentication.logout.LogoutFilter@448c92fc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@646cd766, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@57151b3a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@8c0a23f, org.springframework.security.web.access.ExceptionTranslationFilter@7d3691e1, org.springframework.security.web.access.intercept.AuthorizationFilter@1edccfd4]
+2025-10-25T15:57:07.146-05:00  INFO 21688 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 50507 (http) with context path ''
+2025-10-25T15:57:07.159-05:00  INFO 21688 --- [           main] com.example.api.ApiApplicationTest       : Started ApiApplicationTest in 3.421 seconds (process running for 5.16)
+2025-10-25T15:57:08.569-05:00  INFO 21688 --- [o-auto-1-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-25T15:57:08.570-05:00  INFO 21688 --- [o-auto-1-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-25T15:57:08.571-05:00  INFO 21688 --- [o-auto-1-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-10-25T15:57:08.595-05:00  WARN 21688 --- [o-auto-1-exec-2] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/registro' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-10-25T15:57:08.622-05:00  WARN 21688 --- [o-auto-1-exec-2] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/registro' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+]]></system-out>
+  </testcase>
+  <testcase name="testRegistroEmailDuplicado" classname="com.example.api.ApiApplicationTest" time="0.017"/>
+  <testcase name="testRegistroSinEmail" classname="com.example.api.ApiApplicationTest" time="0.011"/>
+  <testcase name="testRegistroSinPassword" classname="com.example.api.ApiApplicationTest" time="0.01"/>
+  <testcase name="testLoginExitoso" classname="com.example.api.ApiApplicationTest" time="0.13"/>
+  <testcase name="testLoginSinCredenciales" classname="com.example.api.ApiApplicationTest" time="0.023"/>
+  <testcase name="testGuardarInfoPersonalExitoso" classname="com.example.api.ApiApplicationTest" time="0.037"/>
+  <testcase name="testGuardarInfoPersonalSinToken" classname="com.example.api.ApiApplicationTest" time="0.034">
+    <system-out><![CDATA[2025-10-25T15:57:09.113-05:00  WARN 21688 --- [o-auto-1-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'x-access-token' for method parameter type String is not present]
+]]></system-out>
+  </testcase>
+  <testcase name="testGuardarInfoFinancieraExitoso" classname="com.example.api.ApiApplicationTest" time="0.019">
+    <system-out><![CDATA[🔍 Datos recibidos completos: {alimentacion=800000.0, otros=200000.0, ingreso=5000000.0, transporte=400000.0, arriendoHipo=1500000.0, services=300000.0, fuenteIngreso=Salario}
+💰 Ingreso: 5000000.0
+💸 Total Gastos: 3200000.0
+✅ Disponible: 1800000.0
+✅ Datos guardados exitosamente
+]]></system-out>
+  </testcase>
+  <testcase name="testGuardarInfoFinancieraConStrings" classname="com.example.api.ApiApplicationTest" time="0.032">
+    <system-out><![CDATA[🔍 Datos recibidos completos: {alimentacion=$500,000, otros=$100,000, ingreso=$3,000,000, transporte=$300,000, arriendoHipo=$1,000,000, services=$200,000, fuenteIngreso=Freelance}
+💰 Ingreso: 3000000.0
+💸 Total Gastos: 2100000.0
+✅ Disponible: 900000.0
+✅ Datos guardados exitosamente
+]]></system-out>
+  </testcase>
+  <testcase name="testGuardarInfoFinancieraSinToken" classname="com.example.api.ApiApplicationTest" time="0.025">
+    <system-out><![CDATA[🔍 Datos recibidos completos: {alimentacion=400000.0, otros=100000.0, ingreso=2000000.0, transporte=200000.0, arriendoHipo=800000.0, services=150000.0}
+💰 Ingreso: 2000000.0
+💸 Total Gastos: 1650000.0
+✅ Disponible: 350000.0
+✅ Datos guardados exitosamente
+]]></system-out>
+  </testcase>
+  <testcase name="testObtenerInfoFinancieraExitosa" classname="com.example.api.ApiApplicationTest" time="0.02">
+    <system-out><![CDATA[🔍 Buscando datos para email: test@example.com
+📊 Datos encontrados para gráfica: {totalGastos=2100000.0, alimentacion=500000.0, otros=100000.0, ingreso=3000000.0, transporte=300000.0, categorias=[Arriendo/Hipoteca, Servicios, Alimentación, Transporte, Otros], arriendoHipo=1000000.0, valores=[1000000.0, 200000.0, 500000.0, 300000.0, 100000.0], services=200000.0, fuenteIngreso=Freelance, disponible=900000.0}
+]]></system-out>
+  </testcase>
+  <testcase name="testObtenerInfoFinancieraSinToken" classname="com.example.api.ApiApplicationTest" time="0.021">
+    <system-out><![CDATA[🔍 Buscando datos para email: default@example.com
+📊 Datos encontrados para gráfica: {totalGastos=1650000.0, alimentacion=400000.0, otros=100000.0, ingreso=2000000.0, transporte=200000.0, categorias=[Arriendo/Hipoteca, Servicios, Alimentación, Transporte, Otros], arriendoHipo=800000.0, valores=[800000.0, 150000.0, 400000.0, 200000.0, 100000.0], services=150000.0, fuenteIngreso=No especificado, disponible=350000.0}
+]]></system-out>
+  </testcase>
+  <testcase name="testObtenerInfoPersonalExitoso" classname="com.example.api.ApiApplicationTest" time="0.017"/>
+  <testcase name="testObtenerInfoPersonalSinToken" classname="com.example.api.ApiApplicationTest" time="0.011">
+    <system-out><![CDATA[2025-10-25T15:57:09.285-05:00  WARN 21688 --- [o-auto-1-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'x-access-token' for method parameter type String is not present]
+]]></system-out>
+  </testcase>
+  <testcase name="testCalculosFinancierosCorrectos" classname="com.example.api.ApiApplicationTest" time="0.02">
+    <system-out><![CDATA[🔍 Datos recibidos completos: {alimentacion=1500000.0, otros=300000.0, ingreso=1.0E7, transporte=800000.0, arriendoHipo=2000000.0, services=500000.0}
+💰 Ingreso: 1.0E7
+💸 Total Gastos: 5100000.0
+✅ Disponible: 4900000.0
+✅ Datos guardados exitosamente
+]]></system-out>
+  </testcase>
+  <testcase name="testActualizarInfoFinanciera" classname="com.example.api.ApiApplicationTest" time="0.051">
+    <system-out><![CDATA[🔍 Datos recibidos completos: {alimentacion=600000.0, otros=100000.0, ingreso=4000000.0, transporte=300000.0, arriendoHipo=1000000.0, services=200000.0}
+💰 Ingreso: 4000000.0
+💸 Total Gastos: 2200000.0
+✅ Disponible: 1800000.0
+✅ Datos guardados exitosamente
+🔍 Datos recibidos completos: {alimentacion=800000.0, otros=200000.0, ingreso=5000000.0, transporte=400000.0, arriendoHipo=1500000.0, services=300000.0}
+💰 Ingreso: 5000000.0
+💸 Total Gastos: 3200000.0
+✅ Disponible: 1800000.0
+✅ Datos guardados exitosamente
+]]></system-out>
+  </testcase>
+</testsuite>

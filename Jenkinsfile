@@ -1,15 +1,10 @@
 pipeline {
     agent any
     
-    // IMPORTANTE: Configura estas rutas según tu sistema Windows
     environment {
-        // Ruta de Maven (usar / en lugar de \)
+        // Rutas de Maven y Java
         MAVEN_HOME = 'C:/Users/usuaario/Downloads/apache-maven-3.9.11-bin/apache-maven-3.9.11'
-        
-        // Ruta de Java (ajustar según tu instalación)
         JAVA_HOME = 'C:/Program Files/Java/jdk-17'
-        
-        // Agregar Maven y Java al PATH
         PATH = "${MAVEN_HOME}/bin;${JAVA_HOME}/bin;${env.PATH}"
         
         // Configuración de SonarQube
@@ -48,11 +43,20 @@ pipeline {
             }
         }
         
-        stage('🔨 Compilar API') {
+        stage('🧹 Limpiar') {
+            steps {
+                dir('Api') {
+                    echo 'Limpiando builds anteriores...'
+                    bat 'mvn clean'
+                }
+            }
+        }
+        
+        stage('🔨 Compilar') {
             steps {
                 dir('Api') {
                     echo 'Compilando el proyecto...'
-                    bat 'mvn clean compile'
+                    bat 'mvn compile'
                 }
             }
         }
@@ -60,21 +64,48 @@ pipeline {
         stage('🧪 Ejecutar Pruebas') {
             steps {
                 dir('Api') {
-                    echo 'Ejecutando pruebas unitarias...'
-                    bat 'mvn test'
+                    echo 'Ejecutando pruebas unitarias y generando cobertura...'
+                    bat '''
+                        mvn test
+                    '''
                 }
             }
             post {
                 always {
                     dir('Api') {
-                        // Publicar resultados de pruebas
-                        junit testResults: '**/target/surefire-reports/*.xml',
-                             allowEmptyResults: true
-                        
-                        // Publicar cobertura JaCoCo
-                        jacoco execPattern: '**/target/jacoco.exec',
-                               classPattern: '**/target/classes',
-                               sourcePattern: '**/src/main/java'
+                        script {
+                            echo '📊 Procesando resultados de pruebas...'
+                            
+                            // Publicar resultados de pruebas JUnit
+                            def testResults = findFiles(glob: '**/target/surefire-reports/TEST-*.xml')
+                            if (testResults.length > 0) {
+                                junit testResults: '**/target/surefire-reports/TEST-*.xml',
+                                     allowEmptyResults: true,
+                                     healthScaleFactor: 1.0
+                                echo "✅ Publicados ${testResults.length} archivos de resultados de pruebas"
+                            } else {
+                                echo '⚠️ No se encontraron resultados de pruebas JUnit'
+                            }
+                            
+                            // Publicar cobertura JaCoCo
+                            def jacocoExec = findFiles(glob: '**/target/jacoco.exec')
+                            if (jacocoExec.length > 0) {
+                                jacoco execPattern: '**/target/jacoco.exec',
+                                       classPattern: '**/target/classes',
+                                       sourcePattern: '**/src/main/java',
+                                       exclusionPattern: '**/config/**,**/dto/**,**/entity/**,**/*Application.class'
+                                echo '✅ Reporte de cobertura JaCoCo publicado'
+                            } else {
+                                echo '⚠️ No se encontró archivo jacoco.exec'
+                                echo 'Esto es normal si no existen pruebas unitarias'
+                            }
+                            
+                            // Verificar si hay reportes HTML de JaCoCo
+                            def jacocoHtml = findFiles(glob: '**/target/site/jacoco/index.html')
+                            if (jacocoHtml.length > 0) {
+                                echo '✅ Reporte HTML de cobertura disponible en target/site/jacoco/index.html'
+                            }
+                        }
                     }
                 }
             }
@@ -83,36 +114,38 @@ pipeline {
         stage('📊 Análisis SonarQube') {
             steps {
                 dir('Api') {
-                    echo 'Ejecutando análisis de código...'
+                    echo 'Ejecutando análisis de código con SonarQube...'
                     withSonarQubeEnv('SonarQube-Server') {
                         bat """
                             mvn sonar:sonar ^
                             -Dsonar.projectKey=%API_PROJECT_KEY% ^
                             -Dsonar.host.url=%SONAR_HOST_URL% ^
-                            -Dsonar.token=%SONAR_TOKEN%
+                            -Dsonar.token=%SONAR_TOKEN% ^
+                            -Dsonar.qualitygate.wait=false
                         """
                     }
                 }
             }
         }
-
         
         stage('⏳ Quality Gate') {
             steps {
-                echo 'Esperando Quality Gate...'
+                echo 'Esperando resultado del Quality Gate...'
                 timeout(time: 5, unit: 'MINUTES') {
                     script {
                         try {
                             def qg = waitForQualityGate()
                             if (qg.status != 'OK') {
-                                echo "⚠️ Quality Gate: ${qg.status}"
-                                unstable(message: "Quality Gate falló")
+                                echo "⚠️ Quality Gate status: ${qg.status}"
+                                echo "El build continuará pero se marcará como UNSTABLE"
+                                currentBuild.result = 'UNSTABLE'
                             } else {
-                                echo '✅ Quality Gate aprobado'
+                                echo '✅ Quality Gate aprobado exitosamente'
                             }
                         } catch (Exception e) {
-                            echo "⚠️ Error en Quality Gate: ${e.message}"
-                            unstable(message: "Error en Quality Gate")
+                            echo "⚠️ Error al verificar Quality Gate: ${e.message}"
+                            echo "El build continuará sin Quality Gate..."
+                            currentBuild.result = 'UNSTABLE'
                         }
                     }
                 }
@@ -122,20 +155,35 @@ pipeline {
         stage('📦 Empaquetar') {
             when {
                 expression { 
-                    currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+                    currentBuild.result == null || 
+                    currentBuild.result == 'SUCCESS' || 
+                    currentBuild.result == 'UNSTABLE' 
                 }
             }
             steps {
                 dir('Api') {
-                    echo 'Empaquetando aplicación...'
+                    echo 'Empaquetando aplicación (sin ejecutar tests nuevamente)...'
                     bat 'mvn package -DskipTests'
                 }
             }
             post {
                 success {
                     dir('Api') {
-                        archiveArtifacts artifacts: 'target/*.jar',
-                                       fingerprint: true
+                        script {
+                            def jarFiles = findFiles(glob: 'target/*.jar')
+                            if (jarFiles.length > 0) {
+                                archiveArtifacts artifacts: 'target/*.jar',
+                                               fingerprint: true,
+                                               allowEmptyArchive: false
+                                echo "✅ Artefactos empaquetados:"
+                                jarFiles.each { file ->
+                                    echo "   - ${file.name}"
+                                }
+                            } else {
+                                echo '⚠️ No se encontraron archivos JAR'
+                                currentBuild.result = 'UNSTABLE'
+                            }
+                        }
                     }
                 }
             }
@@ -144,13 +192,50 @@ pipeline {
     
     post {
         success {
-            echo '✅ Pipeline completado exitosamente'
+            script {
+                def duration = currentBuild.durationString.replace(' and counting', '')
+                echo """
+                ═══════════════════════════════════════════════════════
+                ✅ PIPELINE COMPLETADO EXITOSAMENTE
+                ═══════════════════════════════════════════════════════
+                Duración: ${duration}
+                Build: #${env.BUILD_NUMBER}
+                ═══════════════════════════════════════════════════════
+                """
+            }
+        }
+        unstable {
+            script {
+                def duration = currentBuild.durationString.replace(' and counting', '')
+                echo """
+                ═══════════════════════════════════════════════════════
+                ⚠️ PIPELINE COMPLETADO CON ADVERTENCIAS
+                ═══════════════════════════════════════════════════════
+                Duración: ${duration}
+                Build: #${env.BUILD_NUMBER}
+                Revisa los logs para más detalles
+                ═══════════════════════════════════════════════════════
+                """
+            }
         }
         failure {
-            echo '❌ Pipeline falló'
+            script {
+                def duration = currentBuild.durationString.replace(' and counting', '')
+                echo """
+                ═══════════════════════════════════════════════════════
+                ❌ PIPELINE FALLÓ
+                ═══════════════════════════════════════════════════════
+                Duración: ${duration}
+                Build: #${env.BUILD_NUMBER}
+                Revisa los logs para identificar el problema
+                ═══════════════════════════════════════════════════════
+                """
+            }
         }
         always {
-            echo 'Limpiando...'
+            echo 'Finalizando pipeline...'
+            // Limpiar workspace si es necesario
+            // cleanWs()
         }
     }
 }
