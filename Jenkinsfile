@@ -10,8 +10,7 @@ pipeline {
         // Configuración de SonarQube
         SONAR_HOST_URL = 'http://localhost:9000'
         SONAR_TOKEN = credentials('sonarqube-token')
-        API_PROJECT_KEY = 'pim-api'
-    }
+        API_PROJECT_KEY = 'sistema-pim'
     
     options {
         buildDiscarder(logRotator(numToKeepStr: '10'))
