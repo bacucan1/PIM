@@ -1,24 +1,25 @@
 pipeline {
     agent any
-    
+
     environment {
         // Rutas de Maven y Java
         MAVEN_HOME = 'C:/Users/usuaario/Downloads/apache-maven-3.9.11-bin/apache-maven-3.9.11'
         JAVA_HOME = 'C:/Program Files/Java/jdk-17'
         PATH = "${MAVEN_HOME}/bin;${JAVA_HOME}/bin;${env.PATH}"
-        
+
         // Configuración de SonarQube
         SONAR_HOST_URL = 'http://localhost:9000'
         SONAR_TOKEN = credentials('sonarqube-token')
-        API_PROJECT_KEY = 'Sistema PIM'
+        API_PROJECT_KEY = 'pim-project'
+        SONAR_PROJECT_NAME = 'Sistema PIM'
     }
-    
+
     options {
         buildDiscarder(logRotator(numToKeepStr: '10'))
         timeout(time: 30, unit: 'MINUTES')
         timestamps()
     }
-    
+
     stages {
         stage('🔍 Verificar Entorno') {
             steps {
@@ -35,14 +36,14 @@ pipeline {
                 '''
             }
         }
-        
+
         stage('📦 Checkout') {
             steps {
                 echo 'Descargando código fuente...'
                 checkout scm
             }
         }
-        
+
         stage('🧹 Limpiar') {
             steps {
                 dir('Api') {
@@ -51,7 +52,7 @@ pipeline {
                 }
             }
         }
-        
+
         stage('🔨 Compilar') {
             steps {
                 dir('Api') {
@@ -60,14 +61,12 @@ pipeline {
                 }
             }
         }
-        
+
         stage('🧪 Ejecutar Pruebas') {
             steps {
                 dir('Api') {
                     echo 'Ejecutando pruebas unitarias y generando cobertura...'
-                    bat '''
-                        mvn test
-                    '''
+                    bat 'mvn test'
                 }
             }
             post {
@@ -75,19 +74,17 @@ pipeline {
                     dir('Api') {
                         script {
                             echo '📊 Procesando resultados de pruebas...'
-                            
-                            // Publicar resultados de pruebas JUnit
+
                             def testResults = findFiles(glob: '**/target/surefire-reports/TEST-*.xml')
                             if (testResults.length > 0) {
                                 junit testResults: '**/target/surefire-reports/TEST-*.xml',
-                                     allowEmptyResults: true,
-                                     healthScaleFactor: 1.0
+                                      allowEmptyResults: true,
+                                      healthScaleFactor: 1.0
                                 echo "✅ Publicados ${testResults.length} archivos de resultados de pruebas"
                             } else {
                                 echo '⚠️ No se encontraron resultados de pruebas JUnit'
                             }
-                            
-                            // Publicar cobertura JaCoCo
+
                             def jacocoExec = findFiles(glob: '**/target/jacoco.exec')
                             if (jacocoExec.length > 0) {
                                 jacoco execPattern: '**/target/jacoco.exec',
@@ -99,8 +96,7 @@ pipeline {
                                 echo '⚠️ No se encontró archivo jacoco.exec'
                                 echo 'Esto es normal si no existen pruebas unitarias'
                             }
-                            
-                            // Verificar si hay reportes HTML de JaCoCo
+
                             def jacocoHtml = findFiles(glob: '**/target/site/jacoco/index.html')
                             if (jacocoHtml.length > 0) {
                                 echo '✅ Reporte HTML de cobertura disponible en target/site/jacoco/index.html'
@@ -110,15 +106,16 @@ pipeline {
                 }
             }
         }
-        
+
         stage('📊 Análisis SonarQube') {
             steps {
                 dir('Api') {
                     echo 'Ejecutando análisis de código con SonarQube...'
                     withSonarQubeEnv('SonarQube-Server') {
                         bat """
-                            mvn sonar:sonar ^
+                            mvn clean verify sonar:sonar ^
                             -Dsonar.projectKey=%API_PROJECT_KEY% ^
+                            -Dsonar.projectName="%SONAR_PROJECT_NAME%" ^
                             -Dsonar.host.url=%SONAR_HOST_URL% ^
                             -Dsonar.token=%SONAR_TOKEN% ^
                             -Dsonar.qualitygate.wait=false
@@ -127,7 +124,7 @@ pipeline {
                 }
             }
         }
-        
+
         stage('⏳ Quality Gate') {
             steps {
                 echo 'Esperando resultado del Quality Gate...'
@@ -151,13 +148,13 @@ pipeline {
                 }
             }
         }
-        
+
         stage('📦 Empaquetar') {
             when {
-                expression { 
-                    currentBuild.result == null || 
-                    currentBuild.result == 'SUCCESS' || 
-                    currentBuild.result == 'UNSTABLE' 
+                expression {
+                    currentBuild.result == null ||
+                    currentBuild.result == 'SUCCESS' ||
+                    currentBuild.result == 'UNSTABLE'
                 }
             }
             steps {
@@ -173,8 +170,8 @@ pipeline {
                             def jarFiles = findFiles(glob: 'target/*.jar')
                             if (jarFiles.length > 0) {
                                 archiveArtifacts artifacts: 'target/*.jar',
-                                               fingerprint: true,
-                                               allowEmptyArchive: false
+                                                  fingerprint: true,
+                                                  allowEmptyArchive: false
                                 echo "✅ Artefactos empaquetados:"
                                 jarFiles.each { file ->
                                     echo "   - ${file.name}"
@@ -189,7 +186,7 @@ pipeline {
             }
         }
     }
-    
+
     post {
         success {
             script {
@@ -234,8 +231,7 @@ pipeline {
         }
         always {
             echo 'Finalizando pipeline...'
-            // Limpiar workspace si es necesario
-            // cleanWs()
+            // cleanWs() // Descomenta si deseas limpiar el workspace
         }
     }
 }
