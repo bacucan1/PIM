@@ -14,8 +14,8 @@ pipeline {
         API_PROJECT_NAME = 'PIM API'
         
         // Configurar Maven y Java manualmente si no están en tools
-        MAVEN_HOME = '/usr/share/maven' // Ajusta esta ruta
-        JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64' // Ajusta esta ruta
+        MAVEN_HOME = 'C:\Users\usuaario\Downloads\apache-maven-3.9.11-bin\apache-maven-3.9.11' // Ajusta esta ruta
+        JAVA_HOME = 'C:\Program Files\Java\jdk-17' // Ajusta esta ruta
         PATH = "${MAVEN_HOME}/bin:${JAVA_HOME}/bin:${env.PATH}"
     }
     
