@@ -1,1 +1,7 @@
+com\example\api\TestSecurityConfig.class
+com\example\api\LocalMLAnalysisTest.class
+com\example\api\LocalMLAnalysisTest$ClusterAnalysisResult.class
+com\example\api\LocalMLAnalysisTest$TrendAnalysisResult.class
+com\example\api\LocalMLAnalysisTest$OutlierAnalysisResult.class
 com\example\api\ApiApplicationTest.class
+com\example\api\SecurityVulnerabilityTest.class
