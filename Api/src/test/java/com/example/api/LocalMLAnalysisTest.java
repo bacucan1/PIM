@@ -24,9 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 @SpringBootTest(
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
-    properties = {
-        "spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration"
-    }
+    classes = {ApiApplication.class, TestSecurityConfig.class}
 )
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class LocalMLAnalysisTest {
