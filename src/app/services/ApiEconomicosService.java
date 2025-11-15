@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package app.config;
+package app.services;
 
 import app.session.UserSession;
 import app.datos.Datos_eco;
@@ -26,7 +26,7 @@ public class ApiEconomicosService {
             // Convertir el objeto a JSON
             Gson gson = new Gson();
             String jsonEco = gson.toJson(eco);
-            System.out.println("📤 JSON enviado a la API:");
+            System.out.println("JSON enviado a la API:");
             System.out.println(jsonEco);
 
             // Enviar de forma asíncrona
@@ -35,7 +35,7 @@ public class ApiEconomicosService {
                         SwingUtilities.invokeLater(() -> {
                             JOptionPane.showMessageDialog(null,
                                     "Datos económicos enviados correctamente.",
-                                    "✅ Éxito",
+                                    "Éxito",
                                     JOptionPane.INFORMATION_MESSAGE);
 
                             if (onSuccess != null) {

@@ -1,4 +1,4 @@
-package app.config;
+package app.services;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

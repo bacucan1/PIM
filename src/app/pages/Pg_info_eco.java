@@ -1,7 +1,7 @@
 package app.pages;
 
-import app.config.ApiConfig;
-import app.config.ApiEconomicosService;
+import app.services.ApiConfig;
+import app.services.ApiEconomicosService;
 import app.datos.Datos_eco;
 import app.session.UserSession;
 import com.google.gson.Gson;
