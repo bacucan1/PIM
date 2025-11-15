@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.api.SecurityVulnerabilityTest" time="2.856" tests="15" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.example.api.ApiApplicationTest" time="30.892" tests="17" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -57,7 +57,7 @@
     <property name="user.language.format" value="en"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="CONSOLE_LOG_CHARSET" value="windows-1252"/>
-    <property name="catalina.base" value="C:\Users\usuaario\AppData\Local\Temp\tomcat.0.10089470254845497327"/>
+    <property name="catalina.base" value="C:\Users\usuaario\AppData\Local\Temp\tomcat.0.2343818545640590747"/>
     <property name="native.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk-17\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-17\bin;C:\Users\usuaario\Downloads\apache-maven-3.9.11-bin\apache-maven-3.9.11\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\Ruby33-x64\bin;C:\Users\usuaario\.cargo\bin;C:\Users\usuaario\AppData\Local\Microsoft\WindowsApps;C:\Users\usuaario\.cache\lm-studio\bin;C:\Users\usuaario\AppData\Roaming\npm;C:\Users\usuaario\AppData\Local\Programs\Ollama;C:\Users\usuaario\AppData\Local\Microsoft\WindowsApps;C:\Users\usuaario\AppData\Local\Programs\Microsoft VS Code\bin;c:\Users\usuaario\.vscode\extensions\ms-python.debugpy-2025.14.0-win32-x64\bundled\scripts\noConfigScripts;c:\Users\usuaario\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
@@ -66,117 +66,109 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testAccessWithoutToken" classname="com.example.api.SecurityVulnerabilityTest" time="0.235">
-    <system-out><![CDATA[2025-11-05T20:24:08.999-05:00  WARN 4600 --- [-auto-2-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'x-access-token' for method parameter type String is not present]
-✅ SEC01: Acceso sin autenticación bloqueado correctamente
-]]></system-out>
-  </testcase>
-  <testcase name="testInvalidToken" classname="com.example.api.SecurityVulnerabilityTest" time="0.019">
-    <system-out><![CDATA[   ✅ Token inválido bloqueado correctamente
-✅ SEC02: Token inválido rechazado correctamente
-]]></system-out>
-  </testcase>
-  <testcase name="testExpiredToken" classname="com.example.api.SecurityVulnerabilityTest" time="0.018">
-    <system-out><![CDATA[   ✅ Token expirado bloqueado correctamente
-✅ SEC03: Token expirado rechazado correctamente
-]]></system-out>
-  </testcase>
-  <testcase name="testSQLInjectionInEmail" classname="com.example.api.SecurityVulnerabilityTest" time="0.05">
-    <system-out><![CDATA[   ✅ Payload bloqueado: admin' OR '1'='1
-   ✅ Payload bloqueado: admin'--
-   ✅ Payload bloqueado: admin' OR 1=1--
-   ✅ Payload bloqueado: '; DROP TABLE users--
-   ✅ Payload bloqueado: admin' UNION SELECT * FROM users--
-✅ SEC04: Protección contra inyección SQL verificada (5/5 bloqueados)
-]]></system-out>
-  </testcase>
-  <testcase name="testNoSQLInjection" classname="com.example.api.SecurityVulnerabilityTest" time="0.037">
-    <system-out><![CDATA[   ✅ Payload bloqueado: {"$gt": ""}
-   ✅ Payload bloqueado: {"$ne": null}
-   ✅ Payload bloqueado: admin", "$gt": ""
-   ✅ Payload bloqueado: {
-  "username": {"$gt": ""}
-}
-✅ SEC05: Protección contra inyección NoSQL verificada (4/4 bloqueados)
-]]></system-out>
-  </testcase>
-  <testcase name="testPasswordHashing" classname="com.example.api.SecurityVulnerabilityTest" time="0.197">
-    <system-out><![CDATA[✅ SEC06: Contraseñas hasheadas correctamente (BCrypt)
-]]></system-out>
-  </testcase>
-  <testcase name="testJWTSignatureValidation" classname="com.example.api.SecurityVulnerabilityTest" time="0.052">
-    <system-out><![CDATA[   ✅ Token manipulado bloqueado
-   ✅ Token manipulado bloqueado
-   ✅ Token manipulado bloqueado
-✅ SEC07: Validación de firma JWT funcionando (3/3 bloqueados)
-]]></system-out>
-  </testcase>
-  <testcase name="testBruteForceProtection" classname="com.example.api.SecurityVulnerabilityTest" time="0.987">
-    <system-out><![CDATA[   Intentos fallidos: 0
-   Intentos bloqueados: 10
-✅ SEC08: Sistema responde a múltiples intentos
-]]></system-out>
-  </testcase>
-  <testcase name="testSecurityHeaders" classname="com.example.api.SecurityVulnerabilityTest" time="0.013">
-    <system-out><![CDATA[🔍 Buscando datos para email: default@example.com
-⚠️ No se encontraron datos para el email: default@example.com
-⚠️ SEC09: Headers de seguridad faltantes:
-   - Falta header HSTS (Strict-Transport-Security)
-]]></system-out>
-  </testcase>
-  <testcase name="testSensitiveDataInErrors" classname="com.example.api.SecurityVulnerabilityTest" time="0.016">
-    <system-out><![CDATA[✅ SEC10: Excepciones no exponen información sensible
-]]></system-out>
-  </testcase>
-  <testcase name="testWeakPasswordRejection" classname="com.example.api.SecurityVulnerabilityTest" time="0.502">
-    <system-out><![CDATA[⚠️ SEC11: ADVERTENCIA - 5 contraseñas débiles fueron aceptadas
-   Recomendación: Implementar política de contraseñas fuertes
-]]></system-out>
-  </testcase>
-  <testcase name="testSessionReuseAfterLogout" classname="com.example.api.SecurityVulnerabilityTest" time="0.029">
-    <system-out><![CDATA[🔍 Datos recibidos completos: {}
-💰 Ingreso: 0.0
-💸 Total Gastos: 0.0
-✅ Disponible: 0.0
-✅ Datos guardados exitosamente
-⚠️ SEC12: Recomendación - Implementar endpoint /logout para invalidar tokens
-]]></system-out>
-  </testcase>
-  <testcase name="testInputSizeValidation" classname="com.example.api.SecurityVulnerabilityTest" time="0.104">
-    <failure message="❌ VULNERABILIDAD: No hay validación de tamaño de input ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: ❌ VULNERABILIDAD: No hay validación de tamaño de input ==> expected: <true> but was: <false>
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
-	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
-	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
-	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
-	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
-	at com.example.api.SecurityVulnerabilityTest.testInputSizeValidation(SecurityVulnerabilityTest.java:565)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-]]></failure>
-  </testcase>
-  <testcase name="testEmailFormatValidation" classname="com.example.api.SecurityVulnerabilityTest" time="0.525">
-    <system-out><![CDATA[⚠️ Email inválido aceptado: notanemail
-⚠️ Email inválido aceptado: @example.com
-⚠️ Email inválido aceptado: user@
-⚠️ Email inválido aceptado: user space@example.com
-⚠️ Email inválido aceptado: user..name@example.com
-⚠️ SEC14: 5 emails inválidos aceptados
-]]></system-out>
-  </testcase>
-  <testcase name="testSecurityReport" classname="com.example.api.SecurityVulnerabilityTest" time="0.004">
-    <system-out><![CDATA[
-═══════════════════════════════════════════════════════
-📋 REPORTE DE SEGURIDAD - OWASP TOP 10
-═══════════════════════════════════════════════════════
-✅ A01 - Broken Access Control: VERIFICADO
-✅ A02 - Cryptographic Failures: VERIFICADO
-✅ A03 - Injection: VERIFICADO
-⚠️ A04 - Insecure Design: PARCIAL (falta rate limiting)
-⚠️ A05 - Security Misconfiguration: PARCIAL (faltan headers)
-✅ A07 - Authentication Failures: VERIFICADO
-═══════════════════════════════════════════════════════
+  <testcase name="testRegistroExitoso" classname="com.example.api.ApiApplicationTest" time="4.7">
+    <system-out><![CDATA[20:23:33.589 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.example.api.ApiApplicationTest]: ApiApplicationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:23:34.382 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.example.api.ApiApplication for test class com.example.api.ApiApplicationTest
 
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.0)
+
+2025-11-05T20:23:39.751-05:00  INFO 4600 --- [           main] com.example.api.ApiApplicationTest       : Starting ApiApplicationTest using Java 17.0.12 with PID 4600 (started by usuaario in C:\Users\usuaario\OneDrive\Escritorio\PIM\PIM\Api)
+2025-11-05T20:23:39.760-05:00  INFO 4600 --- [           main] com.example.api.ApiApplicationTest       : No active profile set, falling back to 1 default profile: "default"
+2025-11-05T20:23:51.788-05:00  INFO 4600 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2025-11-05T20:23:51.854-05:00  INFO 4600 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-05T20:23:51.857-05:00  INFO 4600 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-11-05T20:23:52.310-05:00  INFO 4600 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-05T20:23:52.317-05:00  INFO 4600 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 8369 ms
+2025-11-05T20:23:53.913-05:00  WARN 4600 --- [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: d3ad93f5-2f61-46e8-bd07-6d3006537bc2
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-05T20:23:55.451-05:00  INFO 4600 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2a384b46, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74355746, org.springframework.security.web.context.SecurityContextHolderFilter@109d3527, org.springframework.security.web.header.HeaderWriterFilter@295692fd, org.springframework.web.filter.CorsFilter@1c0697c9, org.springframework.security.web.authentication.logout.LogoutFilter@347b27f3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@ff1d29, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@567dc7d7, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31f5829e, org.springframework.security.web.access.ExceptionTranslationFilter@1b404a21, org.springframework.security.web.access.intercept.AuthorizationFilter@4743220d]
+2025-11-05T20:23:56.539-05:00  INFO 4600 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 64128 (http) with context path ''
+2025-11-05T20:23:56.565-05:00  INFO 4600 --- [           main] com.example.api.ApiApplicationTest       : Started ApiApplicationTest in 19.548 seconds (process running for 28.117)
+2025-11-05T20:24:00.683-05:00  INFO 4600 --- [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-05T20:24:00.684-05:00  INFO 4600 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-05T20:24:00.690-05:00  INFO 4600 --- [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2025-11-05T20:24:00.768-05:00  WARN 4600 --- [o-auto-1-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/registro' (previous null). Performing CorsConfiguration lookup. This is logged once only at WARN level, and every time at TRACE.
+2025-11-05T20:24:00.838-05:00  WARN 4600 --- [o-auto-1-exec-1] o.s.w.s.h.HandlerMappingIntrospector     : Cache miss for REQUEST dispatch to '/registro' (previous null). Performing MatchableHandlerMapping lookup. This is logged once only at WARN level, and every time at TRACE.
+]]></system-out>
+  </testcase>
+  <testcase name="testRegistroEmailDuplicado" classname="com.example.api.ApiApplicationTest" time="0.042"/>
+  <testcase name="testRegistroSinEmail" classname="com.example.api.ApiApplicationTest" time="0.025"/>
+  <testcase name="testRegistroSinPassword" classname="com.example.api.ApiApplicationTest" time="0.022"/>
+  <testcase name="testLoginExitoso" classname="com.example.api.ApiApplicationTest" time="0.332"/>
+  <testcase name="testLoginSinCredenciales" classname="com.example.api.ApiApplicationTest" time="0.032"/>
+  <testcase name="testGuardarInfoPersonalExitoso" classname="com.example.api.ApiApplicationTest" time="0.133"/>
+  <testcase name="testGuardarInfoPersonalSinToken" classname="com.example.api.ApiApplicationTest" time="0.069">
+    <system-out><![CDATA[2025-11-05T20:24:01.966-05:00  WARN 4600 --- [o-auto-1-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'x-access-token' for method parameter type String is not present]
+]]></system-out>
+  </testcase>
+  <testcase name="testGuardarInfoFinancieraExitoso" classname="com.example.api.ApiApplicationTest" time="0.043">
+    <system-out><![CDATA[🔍 Datos recibidos completos: {alimentacion=800000.0, otros=200000.0, ingreso=5000000.0, transporte=400000.0, arriendoHipo=1500000.0, services=300000.0, fuenteIngreso=Salario}
+💰 Ingreso: 5000000.0
+💸 Total Gastos: 3200000.0
+✅ Disponible: 1800000.0
+✅ Datos guardados exitosamente
+]]></system-out>
+  </testcase>
+  <testcase name="testGuardarInfoFinancieraConStrings" classname="com.example.api.ApiApplicationTest" time="0.049">
+    <system-out><![CDATA[🔍 Datos recibidos completos: {alimentacion=$500,000, otros=$100,000, ingreso=$3,000,000, transporte=$300,000, arriendoHipo=$1,000,000, services=$200,000, fuenteIngreso=Freelance}
+💰 Ingreso: 3000000.0
+💸 Total Gastos: 2100000.0
+✅ Disponible: 900000.0
+✅ Datos guardados exitosamente
+]]></system-out>
+  </testcase>
+  <testcase name="testGuardarInfoFinancieraSinToken" classname="com.example.api.ApiApplicationTest" time="0.044">
+    <system-out><![CDATA[🔍 Datos recibidos completos: {alimentacion=400000.0, otros=100000.0, ingreso=2000000.0, transporte=200000.0, arriendoHipo=800000.0, services=150000.0}
+💰 Ingreso: 2000000.0
+💸 Total Gastos: 1650000.0
+✅ Disponible: 350000.0
+✅ Datos guardados exitosamente
+]]></system-out>
+  </testcase>
+  <testcase name="testObtenerInfoFinancieraExitosa" classname="com.example.api.ApiApplicationTest" time="0.051">
+    <system-out><![CDATA[🔍 Buscando datos para email: test@example.com
+📊 Datos encontrados para gráfica: {totalGastos=2100000.0, alimentacion=500000.0, otros=100000.0, ingreso=3000000.0, transporte=300000.0, categorias=[Arriendo/Hipoteca, Servicios, Alimentación, Transporte, Otros], arriendoHipo=1000000.0, valores=[1000000.0, 200000.0, 500000.0, 300000.0, 100000.0], services=200000.0, fuenteIngreso=Freelance, disponible=900000.0}
+]]></system-out>
+  </testcase>
+  <testcase name="testObtenerInfoFinancieraSinToken" classname="com.example.api.ApiApplicationTest" time="0.031">
+    <system-out><![CDATA[🔍 Buscando datos para email: default@example.com
+📊 Datos encontrados para gráfica: {totalGastos=1650000.0, alimentacion=400000.0, otros=100000.0, ingreso=2000000.0, transporte=200000.0, categorias=[Arriendo/Hipoteca, Servicios, Alimentación, Transporte, Otros], arriendoHipo=800000.0, valores=[800000.0, 150000.0, 400000.0, 200000.0, 100000.0], services=150000.0, fuenteIngreso=No especificado, disponible=350000.0}
+]]></system-out>
+  </testcase>
+  <testcase name="testObtenerInfoPersonalExitoso" classname="com.example.api.ApiApplicationTest" time="0.033"/>
+  <testcase name="testObtenerInfoPersonalSinToken" classname="com.example.api.ApiApplicationTest" time="0.028">
+    <system-out><![CDATA[2025-11-05T20:24:02.317-05:00  WARN 4600 --- [o-auto-1-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingRequestHeaderException: Required request header 'x-access-token' for method parameter type String is not present]
+]]></system-out>
+  </testcase>
+  <testcase name="testCalculosFinancierosCorrectos" classname="com.example.api.ApiApplicationTest" time="0.046">
+    <system-out><![CDATA[🔍 Datos recibidos completos: {alimentacion=1500000.0, otros=300000.0, ingreso=1.0E7, transporte=800000.0, arriendoHipo=2000000.0, services=500000.0}
+💰 Ingreso: 1.0E7
+💸 Total Gastos: 5100000.0
+✅ Disponible: 4900000.0
+✅ Datos guardados exitosamente
+]]></system-out>
+  </testcase>
+  <testcase name="testActualizarInfoFinanciera" classname="com.example.api.ApiApplicationTest" time="0.083">
+    <system-out><![CDATA[🔍 Datos recibidos completos: {alimentacion=600000.0, otros=100000.0, ingreso=4000000.0, transporte=300000.0, arriendoHipo=1000000.0, services=200000.0}
+💰 Ingreso: 4000000.0
+💸 Total Gastos: 2200000.0
+✅ Disponible: 1800000.0
+✅ Datos guardados exitosamente
+🔍 Datos recibidos completos: {alimentacion=800000.0, otros=200000.0, ingreso=5000000.0, transporte=400000.0, arriendoHipo=1500000.0, services=300000.0}
+💰 Ingreso: 5000000.0
+💸 Total Gastos: 3200000.0
+✅ Disponible: 1800000.0
+✅ Datos guardados exitosamente
 ]]></system-out>
   </testcase>
 </testsuite>

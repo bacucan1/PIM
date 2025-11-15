@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.example.api.LocalMLAnalysisTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 6.237 s <<< FAILURE! - in com.example.api.LocalMLAnalysisTest
+com.example.api.LocalMLAnalysisTest.testDistribucionNormalDatosFinancieros  Time elapsed: 1.016 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Los ingresos no siguen distribución normal ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at com.example.api.LocalMLAnalysisTest.testDistribucionNormalDatosFinancieros(LocalMLAnalysisTest.java:471)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+com.example.api.LocalMLAnalysisTest.testPrediccionTendenciasRegresion  Time elapsed: 0.431 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Debería detectar tendencia creciente fuerte ==> expected: <STRONGLY_INCREASING> but was: <INCREASING>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1156)
+	at com.example.api.LocalMLAnalysisTest.testPrediccionTendenciasRegresion(LocalMLAnalysisTest.java:531)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
