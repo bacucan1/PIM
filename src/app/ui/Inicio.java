@@ -3,7 +3,6 @@ package app.ui;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
-import javax.swing.*;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

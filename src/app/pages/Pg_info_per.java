@@ -1,8 +1,8 @@
 package app.pages;
 
-import app.config.ApiClient;
+import app.services.ApiClient;
 import app.session.UserSession;
-import app.config.ApiConfig;
+import app.services.ApiConfig;
 import app.datos.Datos_per;
 import com.google.gson.Gson;
 /*import java.io.OutputStream;

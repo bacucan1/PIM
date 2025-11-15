@@ -3,7 +3,7 @@ package app.ui;
 
 import app.session.UserSession;
 import app.datos.Usuario;
-import app.config.ApiConfig;
+import app.services.ApiConfig;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import java.awt.HeadlessException;
@@ -218,7 +218,7 @@ public class Login extends javax.swing.JPanel {
             UserSession.getInstance().setToken(token);
             UserSession.getInstance().setEmail(correo);
 
-            JOptionPane.showMessageDialog(this, "Login exitoso 🎉");
+            JOptionPane.showMessageDialog(this, "Login exitoso");
 
             // Aquí podrías abrir el panel principal de la app
             JPanel DashBoard = new DashBoard();
@@ -227,7 +227,7 @@ public class Login extends javax.swing.JPanel {
         }       
         
         else {
-            JOptionPane.showMessageDialog(this, "Credenciales incorrectas ❌");
+            JOptionPane.showMessageDialog(this, "Credenciales incorrectas");
         }
 
     } catch (HeadlessException e) {

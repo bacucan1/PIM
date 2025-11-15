@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.example.api.ApiApplicationTest
+-------------------------------------------------------------------------------
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 30.892 s - in com.example.api.ApiApplicationTest

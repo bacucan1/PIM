@@ -2,7 +2,7 @@ package app.ui;
 
 
 import app.datos.Usuario;
-import app.config.ApiConfig;
+import app.services.ApiConfig;
 import com.google.gson.Gson;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
@@ -165,7 +165,7 @@ public class Registro extends javax.swing.JPanel {
 
             int responseCode = conn.getResponseCode();
             if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_CREATED) {
-                JOptionPane.showMessageDialog(this, "Usuario registrado con éxito ✅");
+                JOptionPane.showMessageDialog(this, "Usuario registrado con éxito");
 
                 // Ir automáticamente al Login
                 Login p2 = new Login();
